@@ -46,12 +46,10 @@ Column{
                 move.indexOne = index;
                 move.valueOne = value;
                 move.swap = true;
-                //playSound.play()
             }else{//already picked the first value
                 move.indexSecond = index;
                 move.valueSecond = value;
                 move.swap = false;
-                //playSound.play()
                 if(level00.contents.stages[home.nulvl].size === 3){
                     move.myArray[indexOne] = valueSecond;
                     move.myArray[indexSecond] = valueOne;
@@ -66,20 +64,19 @@ Column{
             }
         }
         function arraysEqual(arr, arr2) {
-            print("enter")
-
-            print("arry " +  arr.length + " arry2 " + arr2.length)
             for(var i = arr.length; i--;) {
                 if(arr[i] !== arr2[i])
                     return false;
             }
-
-            if(home.nulvl === userSettings.contents.nulvl){
+            /*if(home.nulvl+1 >= level00.contents.stages.length){
+                userSettings.contents = {"nulvl":userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
+                home.nulvl = home.nulvl
+            } else {
                 userSettings.contents = {"nulvl":userSettings.contents.nulvl+1, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
-                //home.nulvl = home.nulvl-1;
-            }
+                home.nulvl=home.nulvl-1
+            }*/
+
             PopupUtils.open(dialog)
-            //playSound.play()
             return true;
         }
 
@@ -94,11 +91,6 @@ Column{
                     move.myArray15[x] = level00.contents.stages[home.nulvl].myArray[x];
                 }
                 table.model = move.myArray15
-            }
-        }
-        function text(){
-            for(var x = 0; x< level00.contents.stages[home.nulvl].myArray.length; x++){
-                print(move.myArray[x])
             }
         }
         function reArray(){
@@ -125,43 +117,39 @@ Column{
         cellWidth: cellHeight
         anchors.horizontalCenter: parent.horizontalCenter
         interactive: false
-        model:level00.contents.stages[home.nulvl].myArray//grid.myArray
+        model:level00.contents.stages[home.nulvl].myArray
         delegate:Item{
                     id:cellHolder
                     width: table.cellHeight; height: width
-                Rectangle {
-                    id:cells
-                    width: parent.width; height: width
-                    property int cellIndex: parseInt(table.index)
-                    color:level00.contents.stages[home.nulvl].size === 3 ? level00.contents.stages[home.nulvl].myColors[move.myArray[model.index]]:level00.contents.stages[home.nulvl].myColors[move.myArray15[model.index]];
-                    anchors.centerIn: parent
-                    Behavior on width { NumberAnimation { duration: 250; easing: UbuntuAnimation.StandardEasing } }
-                }
-
-                Icon {
-                    id:cellText
-                    anchors.centerIn: parent
-                    height:units.gu(2)
-                    width:height
-                    color: "#f0f0f0"
-                    opacity:move.toggle
-                    Behavior on opacity { NumberAnimation { property: "opacity"; duration: 250; easing: UbuntuAnimation.StandardEasing} }
-                    name: level00.contents.stages[home.nulvl].size === 3 ? Logic.iconType(move.myArray,move.correct,modelData) : Logic.iconType2(move.myArray15,move.correct15,model.index);
-                }
-
-                    MouseArea{
-                        //onReleased: playSound2.play()
-                        anchors.fill: parent
-                        visible:level00.contents.stages[home.nulvl].size === 3 ? Logic.visButton(move.myArray,model.index) : Logic.visButton2(move.myArray15,model.index)
-                            //Logic.visButton(move.myArray,move.myArray15,model.index,level00.contents.stages[home.nulvl].size);//model.index === move.myArray[0] || model.index === move.myArray[2] || model.index === move.myArray[6] || model.index === move.myArray[8] ? false : true;
-                        onClicked: {
-                            //playSound.play();//move.swap === false ? playSound.play() : playSound2.play()
-                            cells.width >= cellHolder.width ? cells.width = cellHolder.width - units.gu(2) : cells.width = cellHolder.width;
-                           level00.contents.stages[home.nulvl].size === 3 ? move.swicth(model.index, move.myArray[parseInt(model.index)]) : move.swicth(model.index, move.myArray15[parseInt(model.index)]);
-                        }
+                    Rectangle {
+                        id:cells
+                        width: parent.width; height: width
+                        property int cellIndex: parseInt(table.index)
+                        color:Logic.whatColor(level00.contents.stages[home.nulvl].size,level00.contents.stages[home.nulvl].myColors[move.myArray[model.index]],level00.contents.stages[home.nulvl].myColors[move.myArray15[model.index]])
+                        anchors.centerIn: parent
+                        Behavior on width { NumberAnimation { duration: 250; easing: UbuntuAnimation.StandardEasing } }
                     }
+
+                    Icon {
+                        id:cellText
+                        anchors.centerIn: parent
+                        height:units.gu(2)
+                        width:height
+                        color: "#f0f0f0"
+                        opacity:move.toggle
+                        Behavior on opacity { NumberAnimation { property: "opacity"; duration: 250; easing: UbuntuAnimation.StandardEasing} }
+                        name: Logic.whichIcon(level00.contents.stages[home.nulvl].size,move.myArray,move.correct,move.myArray15,move.correct15,model.index)
+                    }
+                        MouseArea{
+                            anchors.fill: parent
+                            visible:Logic.whichButton(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.myArray15,model.index)
+                            onClicked: {
+                                cells.width >= cellHolder.width ? cells.width = cellHolder.width - units.gu(2) : cells.width = cellHolder.width;
+                               level00.contents.stages[home.nulvl].size === 3 ? move.swicth(model.index, move.myArray[parseInt(model.index)]) : move.swicth(model.index, move.myArray15[parseInt(model.index)]);
+                            }
+                        }
                 }//end item
-    }//end of grid
+    }//end of gridview
 
     SetComponent{
         width:parent.width
