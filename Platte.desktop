@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Chromatic
+Exec=qmlscene $@ Main.qml
+Icon=palette.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Color=#ffffff
+X-Ubuntu-Splash-Image=splash.png
+

@@ -1,0 +1,15 @@
+{
+    "name": "palette.kevinfeyder",
+    "description": "A game about arranging colors",
+    "architecture": "all",
+    "title": "Chromatic",
+    "hooks": {
+        "Platte": {
+            "apparmor": "Platte.apparmor",
+            "desktop": "Platte.desktop"
+        }
+    },
+    "version": "0.1.2",
+    "maintainer": "Kevin Feyder <kevinfeyder@gmail.com>",
+    "framework": "ubuntu-sdk-14.10"
+}
