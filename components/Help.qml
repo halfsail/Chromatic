@@ -15,7 +15,7 @@ Component {
             spacing:units.gu(3)
 
         Label{
-            text:"Tap to blocks to swap them"
+            text:"Tap two blocks to swap them"
 
         }
 
@@ -27,6 +27,9 @@ Component {
         Label{
             text:"Corner blocks are always correct"
 
+        }
+        Label{
+            text:"You get 10 hints every day"
         }
         }
 
