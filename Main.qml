@@ -20,11 +20,12 @@ MainView {
         }
 
     U1db.Document {
-          id: correct
+          id: open
           database: colors
-          docId: "solve"
+          docId: "color"
           create: true
-          contents:{"stages":[{"lvl":[0,1,2,3,4,5,6,7,8]},{"lvl":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]},
+          defaults:{"stages":[{"lvl":["#3fb8af","#8cc8ab","#dad8a7","#9f7a97","#c59a9c","#ecbba2","#ff3d7f","#ff6d8e","#ff9e9d"]},{"lvl":["#348aa7","#42627e","#513b56","#78b895","#6e8c73","#57877a","#bce784","#8cdd91","#5dd39e"]},
+                              {"lvl":["#ff9b71","#956a6c","#2b3a67","#ffcc79","#c4866b","#89415e","#fffd82","#f3a26b","#e84855"]},
         ]}
     }
     U1db.Document {
@@ -89,7 +90,6 @@ MainView {
                                       "name": "Whales","size":3},
                         {"myArray":[0,7,2,1,3,4,6,5,8],"myColors": ["#fbf6b5","#e1b69a","#c7777f","#d8eabb","#b19e91","#8a5467","#b6dec1","#828788","#4e3150"],
                                       "name": "Gee Whiz","size":3},
-
                         {"myArray":[0,14,4,3,2,6,5,13,10,9,11,8,12,7,1,15],"myColors": ["#354242","#788160","#bbc07e","#ffff9d","#5c7a66","#849a66","#abba67","#d3da68","#84b28a","#90b36d","#9bb450","#a8b534","#acebae","#9ccd74","#8caf3a","#7d9100"],
                                       "name": "Herbal Tea","size":4},
                         {"myArray":[0,10,13,3,4,2,9,7,14,6,1,11,12,5,8,15],"myColors": ["#fb8b24","#d25d39","#aa2f4e","#820263","#a8943f","#a5634c","#a23258","#9f0264","#569d5b","#78695f","#9a3562","#bc0266","#04a777","#4b7072","#92396d","#d90368"],
@@ -172,9 +172,22 @@ MainView {
 
     Item {
         id:check
+        property int phase: 0;
+        function anime(){
+            if(check.phase === 0){
+                check.phase = 1;
+        } else if(check.phase === 1){
+            check.phase = 2;
+        }else{
+                check.phase = 0;
+            }
+        }
             Timer {
-                interval: 500; running: true; repeat: true
-                onTriggered:{ check.day(); }
+                interval: 3500; running: true; repeat: true
+                onTriggered:{
+                    check.anime();
+                    //print(check.phase)
+                    check.day(); }
             }
 
             function day() {
@@ -203,16 +216,18 @@ MainView {
         height:parent.height
         width:parent.width
         property int nulvl: userSettings.contents.nulvl;
-        //Item{
-          //  anchors.fill: parent
         Grid{
             id:grid1
         height:parent.height
         width:parent.width
         columns: 3
         spacing:0
-        Rectangle { color: "#3fb8af"; width: parent.width/4; height: parent.height/3 }
-            Rectangle { color: "#8cc8ab"; width: parent.width/2; height: parent.height/3
+
+        Rectangle { color:open.contents.stages[check.phase].lvl[0]; width: parent.width/4; height: parent.height/3
+            Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
+        }
+            Rectangle { color:open.contents.stages[check.phase].lvl[1]; width: parent.width/2; height: parent.height/3
+                Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
                 Item { // container for the custom header include settings, title and add
                     id:diyHeader
                     anchors.centerIn: parent
@@ -240,10 +255,14 @@ MainView {
                 }//end of item
 
             }
-            Rectangle { color: "#dad8a7"; width: parent.width/4; height:parent.height/3 }
+            Rectangle { color:open.contents.stages[check.phase].lvl[2]/*color: "#dad8a7"*/; width: parent.width/4; height:parent.height/3
+                Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
+            }
             //middle row
-            Rectangle { color: "#9f7a97"; width: parent.width/4; height: parent.height/3 }
-                Rectangle { color: "#c59a9c"; width: parent.width/2; height: parent.height/3
+            Rectangle { color: open.contents.stages[check.phase].lvl[3]; width: parent.width/4; height: parent.height/3
+                Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
+            }
+                Rectangle { color: open.contents.stages[check.phase].lvl[4]; width: parent.width/2; height: parent.height/3
                     Icon{
                         name:"media-playback-start"
                         height:units.gu(3)
@@ -259,10 +278,15 @@ MainView {
                         }
                     }
                 }
-                Rectangle { color: "#ecbba2"; width: parent.width/4; height:parent.height/3 }
+                Rectangle { color: open.contents.stages[check.phase].lvl[5]; width: parent.width/4; height:parent.height/3
+                    Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
+                }
                 //bottom row
-                Rectangle { color: "#ff3d7f"; width: parent.width/4; height: parent.height/3 }
-                    Rectangle { color: "#ff6d8e"; width: parent.width/2; height: parent.height/3
+                Rectangle { color: open.contents.stages[check.phase].lvl[6]; width: parent.width/4; height: parent.height/3
+                    Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
+                }
+                    Rectangle { color: open.contents.stages[check.phase].lvl[7]; width: parent.width/2; height: parent.height/3
+                        Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
                         Column{
                             width:parent.width
                             height:parent.height/2
@@ -278,16 +302,12 @@ MainView {
                                     onClicked: PopupUtils.open(help)
                                 }
                             }
-                            /*Label{
-                                text:"Credits"
-                                color:"white"
-                                fontSize: "large"
-                                anchors.horizontalCenter: parent.horizontalCenter
-                            }*/
                         }
                     }
 
-                    Rectangle { color: "#ff9e9d"; width: parent.width/4; height:parent.height/3 }
+                    Rectangle { color: open.contents.stages[check.phase].lvl[8]; width: parent.width/4; height:parent.height/3
+                    Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
+                    }
 
         }
         //}
