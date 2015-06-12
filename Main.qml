@@ -215,7 +215,7 @@ MainView {
         visible:false
         height:parent.height
         width:parent.width
-        property int nulvl: userSettings.contents.nulvl;
+        property int nulvl:0 //userSettings.contents.nulvl;
         Grid{
             id:grid1
         height:parent.height
@@ -273,7 +273,7 @@ MainView {
                     MouseArea{
                         anchors.fill: parent
                         onClicked:{
-                            //playSound.play()
+                            home.nulvl =userSettings.contents.nulvl;
                             stack.push(easyLvl)
                         }
                     }
