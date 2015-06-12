@@ -9,6 +9,19 @@ Component {
    Popover {
         id: dialog
         opacity:.5
+        onDismissAreaChanged:
+        {
+            print("dismiss")
+            if(home.nulvl < userSettings.contents.nulvl){
+                //do nothing
+            }else if(userSettings.contents.nulvl+1 >= level00.contents.stages.length){
+                print("over here")
+                userSettings.contents.nulvl = level00.contents.stages.length-1
+            } else {
+                userSettings.contents = {"nulvl":userSettings.contents.nulvl+1, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
+            }
+        }
+
         Item{
             id:wrapper
             height:units.gu(15)
@@ -39,17 +52,31 @@ Component {
                 MouseArea{
                     anchors.fill: parent
                     onClicked:{
-                        if(userSettings.contents.nulvl+1 >= level00.contents.stages.length){
+                        print("maybe")
+                        /*if(userSettings.contents.nulvl+1 >= level00.contents.stages.length){
+                            print("over here")
                             userSettings.contents.nulvl = level00.contents.stages.length-1
                         } else {
                             userSettings.contents = {"nulvl":userSettings.contents.nulvl+1, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
-                        }
-                        if(home.nulvl+1 >= level00.contents.stages.length){
-                            home.nulvl = home.nulvl
-                        } else {
-                            home.nulvl=home.nulvl-1
-                        }
+                            print("this one")
+                            if(home.nulvl+1 >= level00.contents.stages.length){
+                                home.nulvl = home.nulvl+1
+                                print("maybe this one")
+                            } else {
+                                home.nulvl=userSettings.contents.nulvl
+                                print("i'm here")
+                            }
 
+                        }*/
+                        if(home.nulvl+1 >= level00.contents.stages.length){
+                            home.nulvl = home.nulvl+1
+                            print("maybe this one")
+                        } else if(home.nulvl < userSettings.contents.nulvl){
+                            home.nulvl = home.nulvl+1
+                        }else {
+                            home.nulvl=userSettings.contents.nulvl
+                            print("i'm here")
+                        }
                         //userSettings.contents.nulvl === home.nulvl?home.nulvl=home.nulvl: home.nulvl=home.nulvl+1;
                         move.copy()
                         //table.model = move.myArray;
