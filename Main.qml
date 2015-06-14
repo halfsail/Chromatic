@@ -275,6 +275,7 @@ MainView {
                         onClicked:{
                             home.nulvl =userSettings.contents.nulvl;
                             stack.push(easyLvl)
+
                         }
                     }
                 }
