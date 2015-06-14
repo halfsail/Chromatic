@@ -36,11 +36,11 @@ function whichIcon(size,arr1, arr2,arr3,arr4, index){
             return "close"
         } else {return ""}
     } else{
-        if(index === arr1[0] || index === arr1[3] || index === arr1[12] || index === arr1[15]){
+        if(index === arr3[0] || index === arr3[3] || index === arr3[12] || index === arr3[15]){
           return "lock"
-        } else if(arr1[index] === arr2[index]){
+        } else if(arr3[index] === arr4[index]){
           return "ok"
-        } else if(arr1[index] !== arr2[index]){
+        } else if(arr3[index] !== arr4[index]){
             return "close"
         } else {return ""}
     }
