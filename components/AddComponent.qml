@@ -69,7 +69,7 @@ Component {
 
                         }*/
                         if(home.nulvl+1 >= level00.contents.stages.length){
-                            home.nulvl = home.nulvl+1
+                            home.nulvl = home.nulvl
                             print("maybe this one")
                         } else if(home.nulvl < userSettings.contents.nulvl){
                             home.nulvl = home.nulvl+1
