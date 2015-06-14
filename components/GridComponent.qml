@@ -25,7 +25,8 @@ Column{
     width:parent.width
     height: width
     spacing:units.gu(4)
-    Component.onCompleted: {move.copy();}
+    onVisibleChanged: move.copy();
+
 
     Item{
         id:move
@@ -68,14 +69,6 @@ Column{
                 if(arr[i] !== arr2[i])
                     return false;
             }
-            /*if(home.nulvl+1 >= level00.contents.stages.length){
-                userSettings.contents = {"nulvl":userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
-                home.nulvl = home.nulvl
-            } else {
-                userSettings.contents = {"nulvl":userSettings.contents.nulvl+1, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
-                home.nulvl=home.nulvl-1
-            }*/
-
             PopupUtils.open(dialog)
             return true;
         }
@@ -86,9 +79,9 @@ Column{
                     move.myArray[x] = level00.contents.stages[home.nulvl].myArray[x];
                 }
                 table.model = move.myArray
-            } else{
-                for(var x = 0; x< level00.contents.stages[home.nulvl].myArray.length; x++){
-                    move.myArray15[x] = level00.contents.stages[home.nulvl].myArray[x];
+            } else if(level00.contents.stages[home.nulvl].size === 4) {
+                for(var j = 0; j< level00.contents.stages[home.nulvl].myArray.length; j++){
+                    move.myArray15[j] = level00.contents.stages[home.nulvl].myArray[j];
                 }
                 table.model = move.myArray15
             }
@@ -118,6 +111,7 @@ Column{
         anchors.horizontalCenter: parent.horizontalCenter
         interactive: false
         model:level00.contents.stages[home.nulvl].myArray
+
         delegate:Item{
                     id:cellHolder
                     width: table.cellHeight; height: width
@@ -138,7 +132,7 @@ Column{
                         color: "#f0f0f0"
                         opacity:move.toggle
                         Behavior on opacity { NumberAnimation { property: "opacity"; duration: 250; easing: UbuntuAnimation.StandardEasing} }
-                        name: Logic.whichIcon(level00.contents.stages[home.nulvl].size,move.myArray,move.correct,move.myArray15,move.correct15,model.index)
+                        name: Logic.whichIcon(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.correct,move.myArray15,move.correct15,model.index)
                     }
                         MouseArea{
                             anchors.fill: parent
