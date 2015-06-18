@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
 import "components/backend.js" as Logic
 import U1db 1.0 as U1db
@@ -9,11 +9,12 @@ import "components"
 
 MainView {
     id:levels
+
     objectName: "mainView"
     applicationName: "palette.kevinfeyder"
-    useDeprecatedToolbar: false
     width: units.gu(45)
     height: units.gu(75)
+
     U1db.Database {
             id:colors;
             path: "palette.u1db"
