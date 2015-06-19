@@ -9,7 +9,7 @@
             "desktop": "Platte.desktop"
         }
     },
-    "version": "0.1.2",
+    "version": "0.2.6.1",
     "maintainer": "Kevin Feyder <kevinfeyder@gmail.com>",
     "framework": "ubuntu-sdk-14.10"
 }

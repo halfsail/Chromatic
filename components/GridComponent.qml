@@ -3,6 +3,7 @@ import Ubuntu.Components 1.1
 import "../components/backend.js" as Logic
 import U1db 1.0 as Udb
 import Ubuntu.Components.Popups 1.0
+import QtMultimedia 5.0
 import "../components/"
 
 
@@ -19,6 +20,14 @@ Column {
 
     AddComponent{
         id:dialog
+    }
+    SoundEffect {
+        id:playTone
+        source: "zenfirstclick.wav"
+    }
+    SoundEffect {
+        id:playTone2
+        source: "zensecondclick.wav"
     }
 
 Column{
@@ -40,6 +49,8 @@ Column{
         property var correct: [0,1,2,3,4,5,6,7,8]
         property var myArray15: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
         property var correct15: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        property var myArray25: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        property var correct25: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
 
 
         function swicth(index,value){
@@ -47,16 +58,24 @@ Column{
                 move.indexOne = index;
                 move.valueOne = value;
                 move.swap = true;
+                //playTone.play();
             }else{//already picked the first value
                 move.indexSecond = index;
                 move.valueSecond = value;
                 move.swap = false;
+                print("hello")
+                //playTone.play();
                 if(level00.contents.stages[home.nulvl].size === 3){
                     move.myArray[indexOne] = valueSecond;
                     move.myArray[indexSecond] = valueOne;
                     move.arraysEqual(move.myArray, move.correct);
                     table.model = move.myArray;
-                } else{
+                } else if(level00.contents.stages[home.nulvl].size === 5){
+                    move.myArray25[indexOne] = valueSecond;
+                    move.myArray25[indexSecond] = valueOne;
+                    move.arraysEqual(move.myArray25, move.correct25);
+                    table.model = move.myArray25;
+                }else{
                     move.myArray15[indexOne] = valueSecond;
                     move.myArray15[indexSecond] = valueOne;
                     move.arraysEqual(move.myArray15, move.correct15);
@@ -84,6 +103,11 @@ Column{
                     move.myArray15[j] = level00.contents.stages[home.nulvl].myArray[j];
                 }
                 table.model = move.myArray15
+            } else{
+                for(var i = 0; i< level00.contents.stages[home.nulvl].myArray.length; i++){
+                    move.myArray25[i] = level00.contents.stages[home.nulvl].myArray[i];
+                }
+                table.model = move.myArray25
             }
         }
         function reArray(){
@@ -92,6 +116,12 @@ Column{
                move.myArray[x] = level00.contents.stages[home.nulvl].myArray[x];
             }
             table.model = move.myArray;
+            }else if(level00.contents.stages[home.nulvl].size === 5){
+                for(var x = 0; x< move.myArray25.length; x++){
+                   move.myArray25[x] = level00.contents.stages[home.nulvl].myArray[x];
+                }
+                table.model = move.myArray25;
+
             }else {
                 for(var x = 0; x< move.myArray15.length; x++){
                    move.myArray15[x] = level00.contents.stages[home.nulvl].myArray[x];
@@ -119,7 +149,7 @@ Column{
                         id:cells
                         width: parent.width; height: width
                         property int cellIndex: parseInt(table.index)
-                        color:Logic.whatColor(level00.contents.stages[home.nulvl].size,level00.contents.stages[home.nulvl].myColors[move.myArray[model.index]],level00.contents.stages[home.nulvl].myColors[move.myArray15[model.index]])
+                        color:Logic.whatColor(level00.contents.stages[home.nulvl].size,level00.contents.stages[home.nulvl].myColors[move.myArray[model.index]],level00.contents.stages[home.nulvl].myColors[move.myArray15[model.index]],level00.contents.stages[home.nulvl].myColors[move.myArray25[model.index]])
                         anchors.centerIn: parent
                         Behavior on width { NumberAnimation { duration: 250; easing: UbuntuAnimation.StandardEasing } }
                     }
@@ -132,14 +162,22 @@ Column{
                         color: "#f0f0f0"
                         opacity:move.toggle
                         Behavior on opacity { NumberAnimation { property: "opacity"; duration: 250; easing: UbuntuAnimation.StandardEasing} }
-                        name: Logic.whichIcon(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.correct,move.myArray15,move.correct15,model.index)
+                        name: Logic.whichIcon(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.correct,move.myArray15,move.correct15,move.myArray25,move.correct25,model.index)
                     }
                         MouseArea{
                             anchors.fill: parent
-                            visible:Logic.whichButton(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.myArray15,model.index)
+                            visible:Logic.whichButton(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.myArray15,move.myArray25,model.index)
                             onClicked: {
                                 cells.width >= cellHolder.width ? cells.width = cellHolder.width - units.gu(2) : cells.width = cellHolder.width;
-                               level00.contents.stages[home.nulvl].size === 3 ? move.swicth(model.index, move.myArray[parseInt(model.index)]) : move.swicth(model.index, move.myArray15[parseInt(model.index)]);
+                               //level00.contents.stages[home.nulvl].size === 3 ? move.swicth(model.index, move.myArray[parseInt(model.index)]) : move.swicth(model.index, move.myArray15[parseInt(model.index)]);
+                                if(level00.contents.stages[home.nulvl].size ===3){
+                                    move.swicth(model.index, move.myArray[parseInt(model.index)])
+                                } else if(level00.contents.stages[home.nulvl].size ===4){
+                                    move.swicth(model.index, move.myArray15[parseInt(model.index)])
+                                }else {
+                                    move.swicth(model.index, move.myArray25[parseInt(model.index)])
+                                }
+                                playSound.play()
                             }
                         }
                 }//end item

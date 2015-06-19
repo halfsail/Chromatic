@@ -41,6 +41,7 @@ Item{
                 width:height
                 anchors.centerIn: parent
                 onClicked: move.reArray();
+                    //userSettings.contents={"nulvl":57,"today":userSettings.contents.today,"hint":10}//move.reArray();
             }
         }
         }

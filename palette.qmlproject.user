@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.1.1, 2015-06-11T00:25:43. -->
+<!-- Written by QtCreator 3.1.1, 2015-06-18T00:29:09. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">0</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -314,13 +314,21 @@
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">UbuntuProjectManager.UploadStep</value>
       <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedFiles">
-       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.1.1_all.click</value>
-       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.1_all.click</value>
-       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevin_0.1_all.click</value>
+       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.2.5_all.click</value>
+       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.2.6_all.click</value>
        <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.1.2_all.click</value>
+       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.2.6.1_all.click</value>
+       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevin_0.1_all.click</value>
+       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.2_all.click</value>
+       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.1.1_all.click</value>
        <value type="QString">/usr/share/qtcreator/ubuntu/scripts/qtc_device_applaunch.py</value>
+       <value type="QString">/home/kevin/build-palette-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-default/palette.kevinfeyder_0.1_all.click</value>
       </valuelist>
       <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedHosts">
+       <value type="QString">127.0.0.1</value>
+       <value type="QString">127.0.0.1</value>
+       <value type="QString">127.0.0.1</value>
+       <value type="QString">127.0.0.1</value>
        <value type="QString">127.0.0.1</value>
        <value type="QString">127.0.0.1</value>
        <value type="QString">127.0.0.1</value>
@@ -333,6 +341,10 @@
        <value type="QString">/tmp</value>
        <value type="QString">/tmp</value>
        <value type="QString">/tmp</value>
+       <value type="QString">/tmp</value>
+       <value type="QString">/tmp</value>
+       <value type="QString">/tmp</value>
+       <value type="QString">/tmp</value>
       </valuelist>
       <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedSysroots">
        <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
@@ -340,13 +352,21 @@
        <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
        <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
        <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
+       <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
+       <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
+       <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
+       <value type="QString">/var/lib/schroot/chroots/click-ubuntu-sdk-15.04-armhf</value>
       </valuelist>
       <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedTimes">
-       <value type="QDateTime">2015-06-09T20:30:45</value>
-       <value type="QDateTime">2015-06-09T20:30:06</value>
+       <value type="QDateTime">2015-06-13T22:19:50</value>
+       <value type="QDateTime">2015-06-17T22:05:51</value>
+       <value type="QDateTime">2015-06-13T20:51:02</value>
+       <value type="QDateTime">2015-06-17T22:12:55</value>
        <value type="QDateTime">2015-06-09T20:11:08</value>
-       <value type="QDateTime">2015-06-09T20:41:57</value>
-       <value type="QDateTime">2015-06-09T20:41:57</value>
+       <value type="QDateTime">2015-06-13T21:08:48</value>
+       <value type="QDateTime">2015-06-09T20:30:45</value>
+       <value type="QDateTime">2015-06-17T22:12:55</value>
+       <value type="QDateTime">2015-06-09T20:30:06</value>
       </valuelist>
      </valuemap>
      <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">2</value>

@@ -15,18 +15,20 @@ function congrats(sides){
 
 
 //--- squares color ---//
-function whatColor(size,arr1,arr2){
+function whatColor(size,arr1,arr2,arr3){
     if(size === 3){
         return arr1;
-    }else{
+    }else if(size ===4){
         return arr2;
+    }else{
+        return arr3;
     }
 
 }
 
 //--- hint icons ---//
 
-function whichIcon(size,arr1, arr2,arr3,arr4, index){
+function whichIcon(size,arr1, arr2,arr3,arr4,arr5,arr6, index){
     if(size === 3){
         if(index === arr1[0] || index === arr1[2] || index === arr1[6] || index === arr1[8]){
           return "lock"
@@ -35,7 +37,7 @@ function whichIcon(size,arr1, arr2,arr3,arr4, index){
         } else if(arr1[index] !== arr2[index]){
             return "close"
         } else {return ""}
-    } else{
+    } else if(size === 4){
         if(index === arr3[0] || index === arr3[3] || index === arr3[12] || index === arr3[15]){
           return "lock"
         } else if(arr3[index] === arr4[index]){
@@ -43,16 +45,28 @@ function whichIcon(size,arr1, arr2,arr3,arr4, index){
         } else if(arr3[index] !== arr4[index]){
             return "close"
         } else {return ""}
+    } else {
+        if(index === arr5[0] || index === arr5[4] || index === arr5[20] || index === arr5[24]){
+          return "lock"
+        } else if(arr5[index] === arr6[index]){
+          return "ok"
+        } else if(arr5[index] !== arr6[index]){
+            return "close"
+        } else {return ""}
     }
 }
 
-function whichButton(size,arr1, arr2, index){
+function whichButton(size,arr1, arr2,arr3, index){
     if(size === 3){
         if(index === arr1[0] || index === arr1[2] || index === arr1[6] || index === arr1[8]){
             return false
         }else {return true}
-    }else{
+    }else if(size ===4){
         if(index === arr2[0] || index === arr2[3] || index === arr2[12] || index === arr2[15]){
+            return false;
+        } else { return true}
+    } else{
+        if(index === arr3[0] || index === arr3[4] || index === arr3[20] || index === arr3[24]){
             return false;
         } else { return true}
     }
