@@ -1,6 +1,9 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
+import Ubuntu.Components.Popups 1.0
+import Ubuntu.Components.ListItems 0.1 as Jump
 import U1db 1.0 as U1db
+import "../components/"
 
 Item{
 
@@ -36,6 +39,12 @@ Item{
             text:"Level " + (home.nulvl + 1)
             //color:"#5f5f5f"
             color:"#5f5f5f"
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    PopupUtils.open(popoverComponent, diyTitle)
+                }
+            }
         }
         Label{
 
@@ -48,6 +57,31 @@ Item{
             }
         }
     }
+
+    Component {
+            id: popoverComponent
+            Popover {
+                id: popover
+                pointerTarget:parent
+                ListView{
+                    id:table
+                    clip:true
+                    height:units.gu(30)
+                    width:parent.width
+                    model:userSettings.contents.nulvl+1//level00.contents.stages[home.nulvl].length
+                    delegate: Jump.SingleValue{
+                        text:"lvl " + (model.index+1)
+                        onClicked:{
+                            home.nulvl = model.index
+                            move.copy()
+                            PopupUtils.close(popover)
+                        }
+                    }
+                }
+            }
+    }
+
+
     Icon{
         id:settingButton2
         name:"go-next"
