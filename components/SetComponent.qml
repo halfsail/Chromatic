@@ -54,17 +54,24 @@ Item{
                 source: Qt.resolvedUrl("../hint2.svg")
                 height:parent.height//units.gu(2.8)
                 width:height
+                focus:false
                 anchors.verticalCenter: parent.verticalCenter
                 MouseArea{
                     height:parent.width+units.gu(3)
                     width:height
                     visible: userSettings.contents.hint === 0? false:true;
+
                     anchors.centerIn: parent
-                    onPressed:move.toggle = 1;
-                    onReleased:{
+                    onClicked: {
+                        hint.focus=true
+                        move.toggle=1;
+                    }
+                    onActiveFocusChanged: print("hi")
+                   // onPressed:move.toggle = 1;
+                    /*onReleased:{
                         move.toggle = 0;
                         userSettings.contents.hint === 0? userSettings.contents ={"nulvl": userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint} :userSettings.contents ={"nulvl": userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint-1};
-                    }
+                    }*/
                 }
             }
             Label{
