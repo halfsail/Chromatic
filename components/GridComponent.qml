@@ -4,6 +4,7 @@ import "../components/backend.js" as Logic
 import U1db 1.0 as Udb
 import Ubuntu.Components.Popups 1.0
 import QtMultimedia 5.0
+import Ubuntu.Components.ListItems 0.1 as ListItem
 import "../components/"
 
 
@@ -20,14 +21,6 @@ Column {
 
     AddComponent{
         id:dialog
-    }
-    SoundEffect {
-        id:playTone
-        source: "zenfirstclick.wav"
-    }
-    SoundEffect {
-        id:playTone2
-        source: "zensecondclick.wav"
     }
 
 Column{
@@ -63,7 +56,6 @@ Column{
                 move.indexSecond = index;
                 move.valueSecond = value;
                 move.swap = false;
-                print("hello")
                 //playTone.play();
                 if(level00.contents.stages[home.nulvl].size === 3){
                     move.myArray[indexOne] = valueSecond;
@@ -89,6 +81,7 @@ Column{
                     return false;
             }
             PopupUtils.open(dialog)
+            playSound.play();
             return true;
         }
 
@@ -168,6 +161,7 @@ Column{
                             anchors.fill: parent
                             visible:Logic.whichButton(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.myArray15,move.myArray25,model.index)
                             onClicked: {
+                                cells.focus = true;
                                 cells.width >= cellHolder.width ? cells.width = cellHolder.width - units.gu(2) : cells.width = cellHolder.width;
                                //level00.contents.stages[home.nulvl].size === 3 ? move.swicth(model.index, move.myArray[parseInt(model.index)]) : move.swicth(model.index, move.myArray15[parseInt(model.index)]);
                                 if(level00.contents.stages[home.nulvl].size ===3){
@@ -177,7 +171,6 @@ Column{
                                 }else {
                                     move.swicth(model.index, move.myArray25[parseInt(model.index)])
                                 }
-                                playSound.play()
                             }
                         }
                 }//end item

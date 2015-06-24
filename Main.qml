@@ -13,6 +13,7 @@ MainView {
     objectName: "mainView"
     applicationName: "palette.kevinfeyder"
     useDeprecatedToolbar: false
+    backgroundColor: "#ffffff"
     width: units.gu(45)
     height: units.gu(75)
     U1db.Database {
