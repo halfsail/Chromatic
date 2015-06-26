@@ -1,5 +1,5 @@
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
 import "../components"
 import "../components/backend.js" as Logic
@@ -21,7 +21,6 @@ Component {
                 userSettings.contents = {"nulvl":userSettings.contents.nulvl+1, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
             }
         }
-
         Item{
             id:wrapper
             height:units.gu(15)
@@ -52,35 +51,14 @@ Component {
                 MouseArea{
                     anchors.fill: parent
                     onClicked:{
-                        print("maybe")
-                        /*if(userSettings.contents.nulvl+1 >= level00.contents.stages.length){
-                            print("over here")
-                            userSettings.contents.nulvl = level00.contents.stages.length-1
-                        } else {
-                            userSettings.contents = {"nulvl":userSettings.contents.nulvl+1, "day": userSettings.contents.day, "hint": userSettings.contents.hint}
-                            print("this one")
-                            if(home.nulvl+1 >= level00.contents.stages.length){
-                                home.nulvl = home.nulvl+1
-                                print("maybe this one")
-                            } else {
-                                home.nulvl=userSettings.contents.nulvl
-                                print("i'm here")
-                            }
-
-                        }*/
                         if(home.nulvl+1 >= level00.contents.stages.length){
                             home.nulvl = home.nulvl
-                            print("maybe this one")
                         } else if(home.nulvl < userSettings.contents.nulvl){
                             home.nulvl = home.nulvl+1
                         }else {
                             home.nulvl=userSettings.contents.nulvl
-                            print("i'm here")
                         }
-                        //userSettings.contents.nulvl === home.nulvl?home.nulvl=home.nulvl: home.nulvl=home.nulvl+1;
                         move.copy()
-                        //table.model = move.myArray;
-                        //add.addRoll({"sides":parseInt(pick.model[pick.selectedIndex]),"roll":0});
                         PopupUtils.close(dialog)
                     }
                 }

@@ -1,9 +1,9 @@
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
 import "components/backend.js" as Logic
 import U1db 1.0 as U1db
-import QtMultimedia 5.0
+//import QtMultimedia 5.0
 //import "components/levels.js" as Lvl
 
 import "components"
@@ -12,7 +12,7 @@ MainView {
     id:levels
     objectName: "mainView"
     applicationName: "palette.kevinfeyder"
-    useDeprecatedToolbar: false
+    //useDeprecatedToolbar: false
     backgroundColor: "#ffffff"
     width: units.gu(45)
     height: units.gu(75)
@@ -32,7 +32,6 @@ MainView {
     }
     U1db.Document {
           id: userSettings
-          //stores waterlvl number, and user progress and end goal
           database: colors
           docId: "uSet"
           create: true
@@ -42,10 +41,7 @@ MainView {
 
     U1db.Document {
           id: level00
-          //stores todays expenes
-          //database: color
           docId: "level01"
-          //createChanged:true
           create: true
           defaults:{"stages":[
           {"myArray":[0,4,2,1,7,5,6,3,8],"myColors":["#348aa7","#42627e","#513b56","#78b895","#6e8c73","#57877a","#bce784","#8cdd91","#5dd39e"],
@@ -259,10 +255,10 @@ MainView {
         ]}
         }
 
-    SoundEffect {
+    /*SoundEffect {
         id:playSound
         source: "zensecondclick.wav"
-    }
+    }*/
 
     Item {
         id:check
@@ -369,7 +365,7 @@ MainView {
                         onClicked:{
                             home.nulvl =userSettings.contents.nulvl;
                             stack.push(easyLvl)
-                            playSound.play();
+                            //playSound.play();
 
                         }
                     }
@@ -395,7 +391,7 @@ MainView {
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 MouseArea{
                                     anchors.fill: parent
-                                    onClicked: PopupUtils.open(help)
+                                    onClicked: stack.push(help)//PopupUtils.open(help)
                                 }
                             }
                         }

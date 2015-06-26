@@ -11,5 +11,5 @@
     },
     "version": "0.2.6.1",
     "maintainer": "Kevin Feyder <kevinfeyder@gmail.com>",
-    "framework": "ubuntu-sdk-14.10"
+    "framework": "ubuntu-sdk-15.04"
 }

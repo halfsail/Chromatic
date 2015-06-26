@@ -1,9 +1,9 @@
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 import "../components/backend.js" as Logic
 import U1db 1.0 as Udb
 import Ubuntu.Components.Popups 1.0
-import QtMultimedia 5.0
+//import QtMultimedia 5.0
 import Ubuntu.Components.ListItems 0.1 as ListItem
 import "../components/"
 
@@ -17,6 +17,7 @@ Column {
     HeadComponent{
         height:units.gu(5)
         width:parent.width
+
     }
 
     AddComponent{
@@ -81,7 +82,7 @@ Column{
                     return false;
             }
             PopupUtils.open(dialog)
-            playSound.play();
+            //playSound.play();
             return true;
         }
 
@@ -145,6 +146,7 @@ Column{
                         color:Logic.whatColor(level00.contents.stages[home.nulvl].size,level00.contents.stages[home.nulvl].myColors[move.myArray[model.index]],level00.contents.stages[home.nulvl].myColors[move.myArray15[model.index]],level00.contents.stages[home.nulvl].myColors[move.myArray25[model.index]])
                         anchors.centerIn: parent
                         Behavior on width { NumberAnimation { duration: 250; easing: UbuntuAnimation.StandardEasing } }
+                        Behavior on color {ColorAnimation {duration: UbuntuAnimation.SleepyDuration; easing: UbuntuAnimation.StandardEasing}}
                     }
 
                     Icon {
