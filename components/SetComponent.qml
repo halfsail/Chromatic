@@ -1,11 +1,8 @@
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 import "../components/backend.js" as Logic
 import "../components"
 import U1db 1.0 as U1db
-
-
-//this is for dice total number...The big number in the center
 
 Item{
     id:col
@@ -62,16 +59,12 @@ Item{
                     visible: userSettings.contents.hint === 0? false:true;
 
                     anchors.centerIn: parent
-                    onClicked: {
-                        hint.focus=true
-                        move.toggle=1;
-                    }
-                    onActiveFocusChanged: print("hi")
-                   // onPressed:move.toggle = 1;
-                    /*onReleased:{
+
+                    onPressed:move.toggle = 1;
+                    onReleased:{
                         move.toggle = 0;
                         userSettings.contents.hint === 0? userSettings.contents ={"nulvl": userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint} :userSettings.contents ={"nulvl": userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint-1};
-                    }*/
+                    }
                 }
             }
             Label{
@@ -79,8 +72,7 @@ Item{
                     horizontalCenter: parent.horizontalCenter
                     top:hint.bottom
                 }
-
-                text:userSettings.contents.hint
+                text:userSettings.contents.hint === 0? text = "No More Today" : userSettings.contents.hint;
                 fontSize:"small"
             }
         }
