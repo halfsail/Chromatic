@@ -1,11 +1,37 @@
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 0.1 as Jump
 import U1db 1.0 as U1db
 import "../components/"
 
+
 Item{
+    Icon{
+        id:menu
+        name:"navigation-menu"
+        width: height
+        height:diyHeader.height/1.3
+        anchors{left:parent.left; verticalCenter: parent.verticalCenter}
+        MouseArea {
+            anchors.centerIn: parent
+            height:units.gu(5)
+            width:height
+            onClicked: {
+               stack.push(home)
+                //playSound.play()
+            }//stack.push(set)
+        }
+    }
+
+
+
+Item{
+    width:parent.width/1.7
+    anchors{
+        horizontalCenter: parent.horizontalCenter
+        verticalCenter: parent.verticalCenter
+    }
 
     Icon{
         id:settingButton
@@ -68,9 +94,10 @@ Item{
                     clip:true
                     height:units.gu(30)
                     width:parent.width
-                    model:userSettings.contents.nulvl+1//level00.contents.stages[home.nulvl].length
+                    opacity:.8
+                    model:userSettings.contents.nulvl+1
                     delegate: Jump.SingleValue{
-                        text:"lvl " + (model.index+1)
+                        text:"lvl " + (model.index+1) + "     " + level00.contents.stages[model.index].name
                         onClicked:{
                             home.nulvl = model.index
                             move.copy()
@@ -101,4 +128,5 @@ Item{
         }
     }
 
+}
 }
