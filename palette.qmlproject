@@ -45,14 +45,6 @@ Project {
         directory: "www/js/"
         filter: "*"
     }
-    Files {
-        directory: "tests/"
-        filter: "*"
-    }
-    Files {
-        directory: "debian"
-        filter: "*"
-    }
     /* List of plugin directories passed to QML runtime */
     importPaths: [ "." ,"/usr/bin","/usr/lib/x86_64-linux-gnu/qt5/qml" ]
 }
