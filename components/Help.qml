@@ -142,6 +142,7 @@ Page {
                              MouseArea{
                                  anchors.fill: parent
                                  onClicked:{
+                                     Haptics.play()
                                      PopupUtils.close(dialogue)
                                      place.holder = 0;
                                      pageStack.push(home)
@@ -201,6 +202,7 @@ Page {
                             visible: place.holder < 2 ? false:true;
                             //visible: place.holder < 2 && model.index === 0 || place.holder < 2 && model.index === 2 || place.holder < 2 && model.index === 6 || place.holder < 2 && model.index === 8? false:true;
                             onClicked: {
+                                Haptics.play()
                                 if(model.index === 0 || model.index === 2 || model.index === 6 || model.index === 8){
                                     //do nothing
                                 }else {
@@ -229,7 +231,10 @@ Page {
                 height:parent.width+units.gu(3)
                 width:height
                 anchors.centerIn: parent
-                onPressed:place.toggle = 1;
+                onPressed:{
+                    Haptics.play()
+                    place.toggle = 1;
+                }
                 onReleased:{
                     place.toggle = 0;
                     if(place.holder === 4){
@@ -255,6 +260,7 @@ Page {
         visible: place.holder <6 ? true : false
         text:"Got it"
         onClicked: {
+            Haptics.play()
             if(place.holder >= 6){
                 place.holder = 0;
                 pageStack.push(home)

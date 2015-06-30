@@ -162,6 +162,7 @@ Column{
                             anchors.fill: parent
                             visible:Logic.whichButton(parseInt(level00.contents.stages[home.nulvl].size),move.myArray,move.myArray15,move.myArray25,model.index)
                             onClicked: {
+                                Haptics.play()
                                 cells.focus = true;
                                 cells.width >= cellHolder.width ? cells.width = cellHolder.width - units.gu(2) : cells.width = cellHolder.width;
                                //level00.contents.stages[home.nulvl].size === 3 ? move.swicth(model.index, move.myArray[parseInt(model.index)]) : move.swicth(model.index, move.myArray15[parseInt(model.index)]);

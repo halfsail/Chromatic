@@ -37,8 +37,10 @@ Item{
                 height:parent.width+units.gu(3)
                 width:height
                 anchors.centerIn: parent
-                onClicked: move.reArray();
-                    //userSettings.contents={"nulvl":57,"today":userSettings.contents.today,"hint":10}//move.reArray();
+                onClicked: {
+                    Haptics.play()
+                    move.reArray();
+                }
             }
         }
         }
@@ -62,6 +64,7 @@ Item{
 
                     onPressed:move.toggle = 1;
                     onReleased:{
+                        Haptics.play()
                         move.toggle = 0;
                         userSettings.contents.hint === 0? userSettings.contents ={"nulvl": userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint} :userSettings.contents ={"nulvl": userSettings.contents.nulvl, "day": userSettings.contents.day, "hint": userSettings.contents.hint-1};
                     }

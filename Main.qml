@@ -365,6 +365,7 @@ MainView {
                     MouseArea{
                         anchors.fill: parent
                         onClicked:{
+                            Haptics.play()
                             home.nulvl =userSettings.contents.nulvl;
                             stack.push(easyLvl)
                             //playSound.play();
@@ -393,7 +394,10 @@ MainView {
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 MouseArea{
                                     anchors.fill: parent
-                                    onClicked: stack.push(help)//PopupUtils.open(help)
+                                    onClicked: {
+                                        Haptics.play()
+                                        stack.push(help)
+                                    }
                                 }
                             }
                         }

@@ -18,6 +18,7 @@ Item{
             height:units.gu(5)
             width:height
             onClicked: {
+                Haptics.play()
                stack.push(home)
                 //playSound.play()
             }//stack.push(set)
@@ -46,6 +47,7 @@ Item{
             height:units.gu(5)
             width:height
             onClicked: {
+                Haptics.play()
                 home.nulvl= home.nulvl-1;
                 move.copy()
             }//stack.push(set)
@@ -68,6 +70,7 @@ Item{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
+                    Haptics.play()
                     PopupUtils.open(popoverComponent, diyTitle)
                 }
             }
@@ -103,6 +106,7 @@ Item{
                             anchors.left:parent.left; anchors.leftMargin: units.gu(3)
                         }
                         onClicked:{
+                            Haptics.play()
                             home.nulvl = model.index
                             move.copy()
                             PopupUtils.close(popover)
@@ -126,6 +130,7 @@ Item{
             height:units.gu(5)
             width:height
             onClicked: {
+                Haptics.play()
                 home.nulvl= home.nulvl+1;
                 move.copy()
             }//stack.push(set)

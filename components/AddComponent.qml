@@ -51,6 +51,7 @@ Component {
                 MouseArea{
                     anchors.fill: parent
                     onClicked:{
+                        Haptics.play()
                         if(home.nulvl+1 >= level00.contents.stages.length){
                             home.nulvl = home.nulvl
                         } else if(home.nulvl < userSettings.contents.nulvl){
