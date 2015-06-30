@@ -4,7 +4,6 @@ import "../components/backend.js" as Logic
 import U1db 1.0 as Udb
 import Ubuntu.Components.Popups 1.0
 //import QtMultimedia 5.0
-import Ubuntu.Components.ListItems 0.1 as ListItem
 import "../components/"
 
 
