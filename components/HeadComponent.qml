@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
-import Ubuntu.Components.ListItems 0.1 as Jump
+//import Ubuntu.Components.ListItems 0.1 as Jump
 import U1db 1.0 as U1db
 import "../components/"
 
@@ -96,8 +96,12 @@ Item{
                     width:parent.width
                     opacity:.8
                     model:userSettings.contents.nulvl+1
-                    delegate: Jump.SingleValue{
-                        text:"lvl " + (model.index+1) + "     " + level00.contents.stages[model.index].name
+                    delegate: ListItem{
+                        Label{
+                            text:"lvl " + (model.index+1) + "     " + level00.contents.stages[model.index].name
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left:parent.left; anchors.leftMargin: units.gu(3)
+                        }
                         onClicked:{
                             home.nulvl = model.index
                             move.copy()
