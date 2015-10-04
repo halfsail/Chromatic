@@ -1,5 +1,5 @@
 import QtQuick 2.2
-import Ubuntu.Components 1.2
+import Ubuntu.Components 1.1
 import "../components/backend.js" as Logic
 import "../components"
 import U1db 1.0 as U1db
