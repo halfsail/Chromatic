@@ -92,7 +92,7 @@ Item{
             Popover {
                 id: popover
                 pointerTarget:parent
-                ListView{
+                /*ListView{
                     id:table
                     clip:true
                     height:units.gu(30)
@@ -112,7 +112,7 @@ Item{
                             PopupUtils.close(popover)
                         }
                     }
-                }
+                }*/
             }
     }
 
