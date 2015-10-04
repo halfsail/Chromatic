@@ -3,7 +3,6 @@ import Ubuntu.Components 1.1
 import "../components/backend.js" as Logic
 import U1db 1.0 as Udb
 import Ubuntu.Components.Popups 1.0
-//import QtMultimedia 5.0
 import "../components/"
 
 
@@ -51,12 +50,10 @@ Column{
                 move.indexOne = index;
                 move.valueOne = value;
                 move.swap = true;
-                //playTone.play();
             }else{//already picked the first value
                 move.indexSecond = index;
                 move.valueSecond = value;
                 move.swap = false;
-                //playTone.play();
                 if(level00.contents.stages[home.nulvl].size === 3){
                     move.myArray[indexOne] = valueSecond;
                     move.myArray[indexSecond] = valueOne;
@@ -81,7 +78,6 @@ Column{
                     return false;
             }
             PopupUtils.open(dialog)
-            //playSound.play();
             return true;
         }
 
@@ -165,7 +161,6 @@ Column{
                                 Haptics.play()
                                 cells.focus = true;
                                 cells.width >= cellHolder.width ? cells.width = cellHolder.width - units.gu(2) : cells.width = cellHolder.width;
-                               //level00.contents.stages[home.nulvl].size === 3 ? move.swicth(model.index, move.myArray[parseInt(model.index)]) : move.swicth(model.index, move.myArray15[parseInt(model.index)]);
                                 if(level00.contents.stages[home.nulvl].size ===3){
                                     move.swicth(model.index, move.myArray[parseInt(model.index)])
                                 } else if(level00.contents.stages[home.nulvl].size ===4){
@@ -185,5 +180,3 @@ Column{
     }
 }
 }
-
-

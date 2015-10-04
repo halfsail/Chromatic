@@ -11,9 +11,6 @@ function congrats(sides){
     return Math.floor((Math.random() * sides ));
 }
 
-
-
-
 //--- squares color ---//
 function whatColor(size,arr1,arr2,arr3){
     if(size === 3){
@@ -23,7 +20,6 @@ function whatColor(size,arr1,arr2,arr3){
     }else{
         return arr3;
     }
-
 }
 
 //--- hint icons ---//
@@ -70,41 +66,7 @@ function whichButton(size,arr1, arr2,arr3, index){
             return false;
         } else { return true}
     }
-
 }
-
-/* old function remove before publish
-
-function iconType(arr1, arr2, index){
-    if(index === arr1[0] || index === arr1[2] || index === arr1[6] || index === arr1[8]){
-      return "lock"
-    } else if(arr1[index] === arr2[index]){
-      return "ok"
-    } else if(arr1[index] !== arr2[index]){
-        return "close"
-    } else {return ""}
-}
-
-function iconType2(arr1, arr2, index){
-    if(index === arr1[0] || index === arr1[3] || index === arr1[12] || index === arr1[15]){
-      return "lock"
-    } else if(arr1[index] === arr2[index]){
-      return "ok"
-    } else if(arr1[index] !== arr2[index]){
-        return "close"
-    } else {return ""}
-}
-
-function visButton(arr1,index){
-    if(index === arr1[0] || index === arr1[2] || index === arr1[6] || index === arr1[8]){
-        return false
-    }else {return true}
-}
-function visButton2(arr1,index){
-    if(index === arr1[0] || index === arr1[3] || index === arr1[12] || index === arr1[15]){
-        return false;
-    } else { return true}
-}*/
 
 function whichArray(size){
     if(size === 4){
@@ -112,5 +74,4 @@ function whichArray(size){
     }else{
         return "array15"
     }
-
 }

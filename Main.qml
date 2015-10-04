@@ -3,8 +3,6 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
 import "components/backend.js" as Logic
 import U1db 1.0 as U1db
-//import QtMultimedia 5.0
-//import "components/levels.js" as Lvl
 
 import "components"
 
@@ -13,7 +11,6 @@ MainView {
 
     objectName: "mainView"
     applicationName: "palette.kevinfeyder"
-    //useDeprecatedToolbar: false
     backgroundColor: "#ffffff"
     width: units.gu(45)
     height: units.gu(75)
@@ -257,11 +254,6 @@ MainView {
         ]}
         }
 
-    /*SoundEffect {
-        id:playSound
-        source: "zensecondclick.wav"
-    }*/
-
     Item {
         id:check
         property int phase: 0;
@@ -278,12 +270,10 @@ MainView {
                 interval: 3500; running: true; repeat: true
                 onTriggered:{
                     check.anime();
-                    //print(check.phase)
                     check.day(); }
             }
 
             function day() {
-                //property var m: month[n];
                  Logic.checkDay();
                 if (userSettings.contents.day === Logic.checkDay()) {
 
@@ -368,7 +358,6 @@ MainView {
                             Haptics.play()
                             home.nulvl =userSettings.contents.nulvl;
                             stack.push(easyLvl)
-                            //playSound.play();
 
                         }
                     }
@@ -408,7 +397,6 @@ MainView {
                     }
 
         }
-        //}
 
     }
         Help{
@@ -419,8 +407,6 @@ MainView {
     width:parent.width
     height:parent.height
     }
-   //}
 
 
 }
-

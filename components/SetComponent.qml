@@ -20,15 +20,12 @@ Item{
 
     Row{
         height:parent.height
-        //width:parent.width
         spacing: parent.width/2.4
         anchors.centerIn: parent
-        //anchors.horizontalCenter: parent.horizontalCenter
         Item{
             height:units.gu(2.8)
             width:height
         Image{
-            //name:"reset"
             source: Qt.resolvedUrl("../reset2.svg")
             height:parent.width//units.gu(2.8)
             width:height
@@ -49,7 +46,6 @@ Item{
             width:height
             Image{
                 id:hint
-                //name:"torch-off"
                 source: Qt.resolvedUrl("../hint2.svg")
                 height:parent.height//units.gu(2.8)
                 width:height
@@ -84,6 +80,3 @@ Item{
 
 
 }
-
-
-

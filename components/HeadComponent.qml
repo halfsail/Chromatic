@@ -1,7 +1,6 @@
 import QtQuick 2.2
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
-//import Ubuntu.Components.ListItems 0.1 as Jump
 import U1db 1.0 as U1db
 import "../components/"
 
@@ -20,8 +19,7 @@ Item{
             onClicked: {
                 Haptics.play()
                stack.push(home)
-                //playSound.play()
-            }//stack.push(set)
+            }
         }
     }
 
@@ -50,7 +48,7 @@ Item{
                 Haptics.play()
                 home.nulvl= home.nulvl-1;
                 move.copy()
-            }//stack.push(set)
+            }
         }
     }
 
@@ -65,7 +63,6 @@ Item{
             font.weight: Font.Light;
             anchors.centerIn: parent;
             text:"Level " + (home.nulvl + 1)
-            //color:"#5f5f5f"
             color:"#5f5f5f"
             MouseArea{
                 anchors.fill: parent
@@ -133,7 +130,7 @@ Item{
                 Haptics.play()
                 home.nulvl= home.nulvl+1;
                 move.copy()
-            }//stack.push(set)
+            }
         }
     }
 
