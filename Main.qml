@@ -484,7 +484,7 @@ MainView {
     }
     EasyGrid {
         id: easyLvl
-        widtha: parent.width
+        width: parent.width
         height: parent.height
     }
 }
