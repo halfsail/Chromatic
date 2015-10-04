@@ -221,7 +221,7 @@ Page {
         Behavior on height { NumberAnimation { duration: 250; easing: UbuntuAnimation.StandardEasing } }
         Behavior on opacity { NumberAnimation { duration: 250; easing: UbuntuAnimation.StandardEasing } }
         anchors.horizontalCenter: parent.horizontalCenter
-        Icon{
+        Image{
             id:hint
             source: Qt.resolvedUrl("../hint2.svg")
             height:parent.height//units.gu(2.8)

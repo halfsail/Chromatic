@@ -27,7 +27,7 @@ Item{
         Item{
             height:units.gu(2.8)
             width:height
-        Icon{
+        Image{
             //name:"reset"
             source: Qt.resolvedUrl("../reset2.svg")
             height:parent.width//units.gu(2.8)
@@ -47,7 +47,7 @@ Item{
         Item{
             height:units.gu(2.8)
             width:height
-            Icon{
+            Image{
                 id:hint
                 //name:"torch-off"
                 source: Qt.resolvedUrl("../hint2.svg")
