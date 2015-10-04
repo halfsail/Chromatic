@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.2
 import Ubuntu.Components 1.2
 import "../components/backend.js" as Logic
 import "../components"
