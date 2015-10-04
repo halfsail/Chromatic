@@ -266,15 +266,6 @@ MainView {
     Item {
         id: check
         property int phase: 0
-        function anime(){
-            if(check.phase === 0){
-                check.phase = 1;
-        } else if(check.phase === 1){
-            check.phase = 2;
-        }else{
-                check.phase = 0;
-            }
-        }
         function day() {
                 Logic.checkDay();
             if (userSettings.contents.day === Logic.checkDay()) {
@@ -294,7 +285,7 @@ MainView {
         Timer {
             interval: 3500; running: true; repeat: true
             onTriggered: {
-                check.anime();
+                check.phase = (check.phase + 1) % 3;
                 check.day();
             }
         }
