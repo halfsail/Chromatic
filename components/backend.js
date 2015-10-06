@@ -75,3 +75,49 @@ function whichArray(size){
         return "array15"
     }
 }
+
+function hexColorToRgb(hexString) {
+    var colorVal = parseInt(hexString.slice(1), 16);
+    return {
+        r: (colorVal & 0xff0000) >> 16,
+        g: (colorVal & 0xff00) >> 8,
+        b: colorVal & 0xff
+    }
+}
+
+function rgbToHexColor(color) {
+    return "#" + ((1 << 24) + (color.r << 16) + (color.g << 8) + color.b).toString(16).slice(1);
+}
+
+function bilinearlyInterpolate(a, b, c, d, x, y) {
+    return (
+        a * (1 - x) * (1 - y) +
+        b * x * (1 - y) +
+        c * x * y +
+        d * (1 - x) * y)
+}
+
+function generateInterpolatedArray(size, a, b, c, d) {
+    // Generates a size * size array with interpolated colour values between the
+    // given values for the corners a, b, c and d (clockwise from top-left)
+    var arr = [];
+    var x, y, x_frac, y_frac;
+    var color;
+    a = hexColorToRgb(a);
+    b = hexColorToRgb(b);
+    c = hexColorToRgb(c);
+    d = hexColorToRgb(d);
+    for (y = 0; y < size; y++) {
+        y_frac = y / (size - 1);
+        for (x = 0; x < size; x++) {
+            x_frac = x / (size - 1);
+            color = {
+                r: Math.round(bilinearlyInterpolate(a.r, b.r, c.r, d.r, x_frac, y_frac)),
+                g: Math.round(bilinearlyInterpolate(a.g, b.g, c.g, d.g, x_frac, y_frac)),
+                b: Math.round(bilinearlyInterpolate(a.b, b.b, c.b, d.b, x_frac, y_frac))
+            };
+            arr.push(rgbToHexColor(color));
+        }
+    }
+    return arr;
+}

@@ -27,15 +27,9 @@ MainView {
         create: true
         defaults: {
             "stages": [
-                {"lvl": [
-                    "#3fb8af", "#8cc8ab", "#dad8a7", "#9f7a97", "#c59a9c",
-                    "#ecbba2", "#ff3d7f", "#ff6d8e", "#ff9e9d"]},
-                {"lvl": [
-                    "#348aa7", "#42627e", "#513b56", "#78b895", "#6e8c73",
-                    "#57877a", "#bce784", "#8cdd91", "#5dd39e"]},
-                {"lvl": [
-                    "#ff9b71", "#956a6c", "#2b3a67", "#ffcc79", "#c4866b",
-                    "#89415e", "#fffd82", "#f3a26b", "#e84855"]},
+                {"lvl": Logic.generateInterpolatedArray(3, "#3fb8af", "#dad8a7", "#ff9e9d", "#ff3d7f")},
+                {"lvl": Logic.generateInterpolatedArray(3, "#348aa7", "#513b56", "#5dd39e", "#bce784")},
+                {"lvl": Logic.generateInterpolatedArray(3, "#ff9b71", "#2b3a67", "#e84855", "#fffd82")},
         ]}
     }
     U1db.Document {
