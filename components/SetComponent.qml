@@ -71,7 +71,7 @@ Item{
                     horizontalCenter: parent.horizontalCenter
                     top:hint.bottom
                 }
-                text:userSettings.contents.hint === 0? text = "No More Today" : userSettings.contents.hint;
+                text: userSettings.contents.hint === 0 ? "No More Today" : userSettings.contents.hint;
                 fontSize:"small"
             }
         }
