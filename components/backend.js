@@ -1,8 +1,3 @@
-function checkDay(){
-    var day = new Date().getDate();
-    return day;
-}
-
 function congrats(sides){
     return Math.floor((Math.random() * sides ));
 }

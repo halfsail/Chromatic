@@ -260,27 +260,21 @@ MainView {
     Item {
         id: check
         property int phase: 0
-        function day() {
-                Logic.checkDay();
-            if (userSettings.contents.day === Logic.checkDay()) {
-
-            } else if (userSettings.contents.day === 0){
+        property int dAY_MILLISECS: 1000 * 60 * 60 * 24  // FIXME: global?
+        function refreshHints() {
+            var now = new Date().getTime();
+            if (now - userSettings.contents.day > check.dAY_MILLISECS) {
                 userSettings.contents = {
                     "nulvl": userSettings.contents.nulvl,
-                    "day": Logic.checkDay(),
-                    "hint": userSettings.contents.hint}
-            } else {
-                userSettings.contents = {
-                    "nulvl": userSettings.contents.nulvl,
-                    "day": Logic.checkDay(),
-                    "hint": 10}
+                    "day": now,
+                    "hint": 10};
             }
         }
         Timer {
             interval: 3500; running: true; repeat: true
             onTriggered: {
                 check.phase = (check.phase + 1) % 3;
-                check.day();
+                check.refreshHints();
             }
         }
     }
