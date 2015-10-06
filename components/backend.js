@@ -1,7 +1,3 @@
-function hello(){
-    console.log("hello world")
-}
-
 function checkDay(){
     var day = new Date().getDate();
     return day;
