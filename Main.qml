@@ -2,6 +2,7 @@ import QtQuick 2.2
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
 import "components/backend.js" as Logic
+import "components/colors.js" as Colors
 import U1db 1.0 as U1db
 
 import "components"
@@ -27,9 +28,9 @@ MainView {
         create: true
         defaults: {
             "stages": [
-                {"lvl": Logic.generateInterpolatedArray(3, ["#3fb8af", "#dad8a7", "#ff9e9d", "#ff3d7f"])},
-                {"lvl": Logic.generateInterpolatedArray(3, ["#348aa7", "#513b56", "#5dd39e", "#bce784"])},
-                {"lvl": Logic.generateInterpolatedArray(3, ["#ff9b71", "#2b3a67", "#e84855", "#fffd82"])},
+                {"lvl": Logic.generateInterpolatedArray(3, Colors.colors["#nofilter"])},
+                {"lvl": Logic.generateInterpolatedArray(3, Colors.colors["Carribbean"])},
+                {"lvl": Logic.generateInterpolatedArray(3, Colors.colors["Sunset"])},
         ]}
     }
     U1db.Document {
