@@ -88,16 +88,17 @@ function bilinearlyInterpolate(a, b, c, d, x, y) {
         d * (1 - x) * y)
 }
 
-function generateInterpolatedArray(size, a, b, c, d) {
+function generateInterpolatedArray(size, corner_colors) {
     // Generates a size * size array with interpolated colour values between the
-    // given values for the corners a, b, c and d (clockwise from top-left)
+    // given values for the corners (an array of four hex colours clockwise from
+    // top-left)
     var arr = [];
     var x, y, x_frac, y_frac;
     var color;
-    a = hexColorToRgb(a);
-    b = hexColorToRgb(b);
-    c = hexColorToRgb(c);
-    d = hexColorToRgb(d);
+    var a = hexColorToRgb(corner_colors[0]);
+    var b = hexColorToRgb(corner_colors[1]);
+    var c = hexColorToRgb(corner_colors[2]);
+    var d = hexColorToRgb(corner_colors[3]);
     for (y = 0; y < size; y++) {
         y_frac = y / (size - 1);
         for (x = 0; x < size; x++) {
