@@ -18,7 +18,7 @@ Item{
             width:height
             onClicked: {
                 Haptics.play()
-               stack.push(home)
+               stack.pop()
             }
         }
     }

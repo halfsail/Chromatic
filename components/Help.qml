@@ -100,7 +100,7 @@ Page {
                     width:height
                     onClicked: {
                         place.holder = 0;
-                       stack.push(home)
+                       stack.pop()
                     }
                 }
             }
@@ -145,7 +145,7 @@ Page {
                                      Haptics.play()
                                      PopupUtils.close(dialogue)
                                      place.holder = 0;
-                                     pageStack.push(home)
+                                     pageStack.pop()
                                  }
                              }
                          }
@@ -263,7 +263,7 @@ Page {
             Haptics.play()
             if(place.holder >= 6){
                 place.holder = 0;
-                pageStack.push(home)
+                pageStack.pop()
             }else{
                 place.holder = place.holder + 1;
             }
