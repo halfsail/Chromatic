@@ -1,4 +1,4 @@
-colors = {
+var colors = {
   "#nofilter": [
     "#3fb8af",
     "#dad8a7",
@@ -557,4 +557,4 @@ colors = {
     "#ffe1a8",
     "#472d30"
   ]
-}
+};
