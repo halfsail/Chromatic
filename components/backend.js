@@ -67,6 +67,59 @@ function whichArray(size){
     }
 }
 
+function all(predicate, array) {
+    for (var i = 0; i < array.length; i++) {
+        if (! predicate(i, array[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function swap(arr, index_a, index_b) {
+    var temp = arr[index_a];
+    arr[index_a] = arr[index_b];
+    arr[index_b] = temp;
+}
+
+function shuffle(arr) {
+    var counter = arr.length;
+    var temp, index;
+    while (counter > 0) {
+        index = Math.floor(Math.random() * counter);
+        counter--;
+        swap(arr, counter, index);
+    }
+}
+
+function isCorner(index, size) {
+    // Returns whether a given index in a grid array corresponds to a corner
+    // square
+    index++;
+    var end = size * size;
+    return index == 1 || index == size || index == end || index == (end - size + 1);
+}
+
+function generateRandomizedArray(size) {
+    // Generates a randomised game state, where size is the side length of the
+    // game grid
+    var arr = [], corners = [];
+    var i;
+    for (i = 0; i < size * size; i++) {
+        if (isCorner(i, size)) {
+            corners.push(i);
+        } else {
+            arr.push(i);
+        }
+    }
+    shuffle(arr);
+    for (i = 0; i < corners.length; i++) {
+        arr.splice(corners[i], 0, corners[i]);
+    }
+    console.log(arr);
+    return arr;
+}
+
 function hexColorToRgb(hexString) {
     var colorVal = parseInt(hexString.slice(1), 16);
     return {
