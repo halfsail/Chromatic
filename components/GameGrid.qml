@@ -64,6 +64,12 @@ Grid {
                         easing: UbuntuAnimation.StandardEasing
                     }
                 }
+                Behavior on color {
+                    ColorAnimation {
+                        duration: UbuntuAnimation.SleepyDuration
+                        easing: UbuntuAnimation.StandardEasing
+                    }
+                }
             }
         }
     }
