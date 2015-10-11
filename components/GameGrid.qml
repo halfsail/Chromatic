@@ -12,12 +12,15 @@ Grid {
     property var colors: Logic.generateInterpolatedArray(size, Colors.colors[colorSetName])
     property var indexMap: Logic.generateRandomizedArray(size)
     onIndexMapChanged: checkSolved(indexMap)
+    property var onSolved
     property var selectedSquare: null
     columns: size
     rows: size
     spacing: 0
     function checkSolved(arr) {
-        return Logic.all(function(i, val) {return val == i}, arr);
+        if (Logic.all(function(i, val) {return val == i}, arr)) {
+            onSolved();
+        }
     }
     function swapIndexes(a, b) {
         var arr = indexMap.slice();
