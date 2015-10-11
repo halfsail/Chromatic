@@ -116,7 +116,6 @@ function generateRandomizedArray(size) {
     for (i = 0; i < corners.length; i++) {
         arr.splice(corners[i], 0, corners[i]);
     }
-    console.log(arr);
     return arr;
 }
 
