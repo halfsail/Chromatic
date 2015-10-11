@@ -7,8 +7,8 @@ Grid {
     id: grid
     width: parent.width
     height: parent.height
-    property int size: 4
-    property string colorSetName: "Magia"
+    property int size
+    property string colorSetName
     property var colors: Logic.generateInterpolatedArray(size, Colors.colors[colorSetName])
     property var indexMap: Logic.generateRandomizedArray(size)
     onIndexMapChanged: checkSolved(indexMap)
