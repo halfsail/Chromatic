@@ -8,9 +8,13 @@ Grid {
     width: parent.width
     height: parent.height
     property int size
+    // FIXME: size change doesn't currently trigger a randomsiation for
+    // efficiency, assuming that each consequtive puzzle uses a different colour
+    // set
     property string colorSetName
+    onColorSetNameChanged: indexMap = Logic.generateRandomizedArray(size);
     property var colors: Logic.generateInterpolatedArray(size, Colors.colors[colorSetName])
-    property var indexMap: Logic.generateRandomizedArray(size)
+    property var indexMap
     onIndexMapChanged: checkSolved(indexMap)
     property var onSolved
     property var selectedSquare: null
