@@ -14,6 +14,7 @@ Grid {
     onIndexMapChanged: checkSolved(indexMap)
     property var onSolved
     property var selectedSquare: null
+    property bool hinting: false
     columns: size
     rows: size
     spacing: 0
@@ -69,6 +70,27 @@ Grid {
                 }
                 Behavior on color {
                     ColorAnimation {
+                        duration: UbuntuAnimation.SleepyDuration
+                        easing: UbuntuAnimation.StandardEasing
+                    }
+                }
+            }
+            function selectHint() {
+                if (Logic.isCorner(index, grid.size)) {
+                    return "l"; // lock
+                } else if (index == grid.indexMap[index]) {
+                    return "y"; // ok
+                } else {
+                    return "n"; // close
+                }
+
+            }
+            Text {
+                text: selectHint();
+                anchors.centerIn: square
+                opacity: grid.hinting ? 1 : 0
+                Behavior on opacity {
+                    NumberAnimation {
                         duration: UbuntuAnimation.SleepyDuration
                         easing: UbuntuAnimation.StandardEasing
                     }
