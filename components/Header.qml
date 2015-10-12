@@ -13,7 +13,6 @@ Item {
     Row {
         spacing: units.gu(1)
         anchors.horizontalCenter: parent.horizontalCenter
-        width: parent.width
         Text {
             // FIXME: icon
             property bool active: currentPuzzle > 0
