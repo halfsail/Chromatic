@@ -9,7 +9,7 @@ Column {
     anchors.margins: units.gu(2)
     property var puzzles: Puzzles.puzzles
     property int currentPuzzle: 0
-    property string name: puzzles[currentPuzzle].colorSet
+    property string name: puzzles[currentPuzzle].colorSetName
     function onSolved() {
         console.log("woot");
         currentPuzzle++;

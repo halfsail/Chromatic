@@ -1,402 +1,402 @@
 var puzzles = [
   {
-    "colorSet": "Carribbean",
+    "colorSetName": "Carribbean",
     "size": 3
   },
   {
-    "colorSet": "Roses",
+    "colorSetName": "Roses",
     "size": 3
   },
   {
-    "colorSet": "Spring",
+    "colorSetName": "Spring",
     "size": 3
   },
   {
-    "colorSet": "Mixed Feelings",
+    "colorSetName": "Mixed Feelings",
     "size": 3
   },
   {
-    "colorSet": "Sunset",
+    "colorSetName": "Sunset",
     "size": 3
   },
   {
-    "colorSet": "Fresh Lemons",
+    "colorSetName": "Fresh Lemons",
     "size": 3
   },
   {
-    "colorSet": "Kale Anyone",
+    "colorSetName": "Kale Anyone",
     "size": 3
   },
   {
-    "colorSet": "Autumn",
+    "colorSetName": "Autumn",
     "size": 3
   },
   {
-    "colorSet": "soil",
+    "colorSetName": "soil",
     "size": 3
   },
   {
-    "colorSet": "Opposites",
+    "colorSetName": "Opposites",
     "size": 3
   },
   {
-    "colorSet": "Amber",
+    "colorSetName": "Amber",
     "size": 3
   },
   {
-    "colorSet": "Salty Fun",
+    "colorSetName": "Salty Fun",
     "size": 3
   },
   {
-    "colorSet": "Americana",
+    "colorSetName": "Americana",
     "size": 3
   },
   {
-    "colorSet": "Bubblegum",
+    "colorSetName": "Bubblegum",
     "size": 3
   },
   {
-    "colorSet": "Muted",
+    "colorSetName": "Muted",
     "size": 3
   },
   {
-    "colorSet": "Harmony",
+    "colorSetName": "Harmony",
     "size": 3
   },
   {
-    "colorSet": "JoyStar",
+    "colorSetName": "JoyStar",
     "size": 3
   },
   {
-    "colorSet": "CMYK",
+    "colorSetName": "CMYK",
     "size": 3
   },
   {
-    "colorSet": "Whales",
+    "colorSetName": "Whales",
     "size": 3
   },
   {
-    "colorSet": "Gee Whiz",
+    "colorSetName": "Gee Whiz",
     "size": 3
   },
   {
-    "colorSet": "Herbal Tea",
+    "colorSetName": "Herbal Tea",
     "size": 4
   },
   {
-    "colorSet": "Manarola",
+    "colorSetName": "Manarola",
     "size": 4
   },
   {
-    "colorSet": "This is Kinda Nice",
+    "colorSetName": "This is Kinda Nice",
     "size": 4
   },
   {
-    "colorSet": "Moar Whales",
+    "colorSetName": "Moar Whales",
     "size": 4
   },
   {
-    "colorSet": "Thanks for the Latte",
+    "colorSetName": "Thanks for the Latte",
     "size": 4
   },
   {
-    "colorSet": "Raspberry Breve",
+    "colorSetName": "Raspberry Breve",
     "size": 4
   },
   {
-    "colorSet": "It's a Virtue",
+    "colorSetName": "It's a Virtue",
     "size": 4
   },
   {
-    "colorSet": "Cherry Riot",
+    "colorSetName": "Cherry Riot",
     "size": 4
   },
   {
-    "colorSet": "Stocking",
+    "colorSetName": "Stocking",
     "size": 4
   },
   {
-    "colorSet": "Anarchy",
+    "colorSetName": "Anarchy",
     "size": 4
   },
   {
-    "colorSet": "Pink Elephant",
+    "colorSetName": "Pink Elephant",
     "size": 4
   },
   {
-    "colorSet": "Nom-De-Plume",
+    "colorSetName": "Nom-De-Plume",
     "size": 4
   },
   {
-    "colorSet": "Notice Me Senpai",
+    "colorSetName": "Notice Me Senpai",
     "size": 4
   },
   {
-    "colorSet": "Tabby Cat",
+    "colorSetName": "Tabby Cat",
     "size": 4
   },
   {
-    "colorSet": "Cherry Club",
+    "colorSetName": "Cherry Club",
     "size": 4
   },
   {
-    "colorSet": "Odd But Trendy",
+    "colorSetName": "Odd But Trendy",
     "size": 4
   },
   {
-    "colorSet": "Ambigous Freshness",
+    "colorSetName": "Ambigous Freshness",
     "size": 4
   },
   {
-    "colorSet": "Odd But Hip",
+    "colorSetName": "Odd But Hip",
     "size": 4
   },
   {
-    "colorSet": "Panda VS Bamboo",
+    "colorSetName": "Panda VS Bamboo",
     "size": 4
   },
   {
-    "colorSet": "All or Nothing",
+    "colorSetName": "All or Nothing",
     "size": 4
   },
   {
-    "colorSet": "Podbird",
+    "colorSetName": "Podbird",
     "size": 4
   },
   {
-    "colorSet": "A Lovely Jest",
+    "colorSetName": "A Lovely Jest",
     "size": 4
   },
   {
-    "colorSet": "Citrus",
+    "colorSetName": "Citrus",
     "size": 4
   },
   {
-    "colorSet": "Scarlet Letter",
+    "colorSetName": "Scarlet Letter",
     "size": 4
   },
   {
-    "colorSet": "Ubuntu",
+    "colorSetName": "Ubuntu",
     "size": 4
   },
   {
-    "colorSet": "Microsoft",
+    "colorSetName": "Microsoft",
     "size": 4
   },
   {
-    "colorSet": "Firefox",
+    "colorSetName": "Firefox",
     "size": 4
   },
   {
-    "colorSet": "Android",
+    "colorSetName": "Android",
     "size": 4
   },
   {
-    "colorSet": "Chrome",
+    "colorSetName": "Chrome",
     "size": 4
   },
   {
-    "colorSet": "Mavericks",
+    "colorSetName": "Mavericks",
     "size": 4
   },
   {
-    "colorSet": "Weekend Getaway",
+    "colorSetName": "Weekend Getaway",
     "size": 4
   },
   {
-    "colorSet": "Fair Maiden",
+    "colorSetName": "Fair Maiden",
     "size": 4
   },
   {
-    "colorSet": "Pokeball",
+    "colorSetName": "Pokeball",
     "size": 4
   },
   {
-    "colorSet": "Vibrant",
+    "colorSetName": "Vibrant",
     "size": 4
   },
   {
-    "colorSet": "JoyStar",
+    "colorSetName": "JoyStar",
     "size": 4
   },
   {
-    "colorSet": "Koi",
+    "colorSetName": "Koi",
     "size": 4
   },
   {
-    "colorSet": "Nolas",
+    "colorSetName": "Nolas",
     "size": 4
   },
   {
-    "colorSet": "#nofilter",
+    "colorSetName": "#nofilter",
     "size": 4
   },
   {
-    "colorSet": "Purple",
+    "colorSetName": "Purple",
     "size": 4
   },
   {
-    "colorSet": "Faded",
+    "colorSetName": "Faded",
     "size": 5
   },
   {
-    "colorSet": "Fresh Lemons",
+    "colorSetName": "Fresh Lemons",
     "size": 5
   },
   {
-    "colorSet": "Ice Cream",
+    "colorSetName": "Ice Cream",
     "size": 5
   },
   {
-    "colorSet": "Pale Spring",
+    "colorSetName": "Pale Spring",
     "size": 5
   },
   {
-    "colorSet": "Florindo",
+    "colorSetName": "Florindo",
     "size": 5
   },
   {
-    "colorSet": "Spring",
+    "colorSetName": "Spring",
     "size": 5
   },
   {
-    "colorSet": "Caribean",
+    "colorSetName": "Caribean",
     "size": 5
   },
   {
-    "colorSet": "Mocha",
+    "colorSetName": "Mocha",
     "size": 5
   },
   {
-    "colorSet": "Spearmint",
+    "colorSetName": "Spearmint",
     "size": 5
   },
   {
-    "colorSet": "Van Gogh",
+    "colorSetName": "Van Gogh",
     "size": 5
   },
   {
-    "colorSet": "Hues",
+    "colorSetName": "Hues",
     "size": 5
   },
   {
-    "colorSet": "Magia",
+    "colorSetName": "Magia",
     "size": 5
   },
   {
-    "colorSet": "Amethyst",
+    "colorSetName": "Amethyst",
     "size": 5
   },
   {
-    "colorSet": "I'm Sorry",
+    "colorSetName": "I'm Sorry",
     "size": 5
   },
   {
-    "colorSet": "Pop Art",
+    "colorSetName": "Pop Art",
     "size": 5
   },
   {
-    "colorSet": "CMYK",
+    "colorSetName": "CMYK",
     "size": 5
   },
   {
-    "colorSet": "Your Lie In Apirl",
+    "colorSetName": "Your Lie In Apirl",
     "size": 5
   },
   {
-    "colorSet": "Warm Feelings",
+    "colorSetName": "Warm Feelings",
     "size": 5
   },
   {
-    "colorSet": "#nofilter",
+    "colorSetName": "#nofilter",
     "size": 5
   },
   {
-    "colorSet": "Vibrant",
+    "colorSetName": "Vibrant",
     "size": 5
   },
   {
-    "colorSet": "Midnight",
+    "colorSetName": "Midnight",
     "size": 5
   },
   {
-    "colorSet": "Summer Time",
+    "colorSetName": "Summer Time",
     "size": 5
   },
   {
-    "colorSet": "Middle School Crush",
+    "colorSetName": "Middle School Crush",
     "size": 5
   },
   {
-    "colorSet": "Surf's Up",
+    "colorSetName": "Surf's Up",
     "size": 5
   },
   {
-    "colorSet": "Nolas",
+    "colorSetName": "Nolas",
     "size": 5
   },
   {
-    "colorSet": "Koi Pond",
+    "colorSetName": "Koi Pond",
     "size": 5
   },
   {
-    "colorSet": "Preschool",
+    "colorSetName": "Preschool",
     "size": 5
   },
   {
-    "colorSet": "Subconscious Burst",
+    "colorSetName": "Subconscious Burst",
     "size": 5
   },
   {
-    "colorSet": "On The Balcony",
+    "colorSetName": "On The Balcony",
     "size": 5
   },
   {
-    "colorSet": "Llamas Like Apples",
+    "colorSetName": "Llamas Like Apples",
     "size": 5
   },
   {
-    "colorSet": "On The Rocks",
+    "colorSetName": "On The Rocks",
     "size": 5
   },
   {
-    "colorSet": "Midsummer Dream",
+    "colorSetName": "Midsummer Dream",
     "size": 5
   },
   {
-    "colorSet": "Watermelon",
+    "colorSetName": "Watermelon",
     "size": 5
   },
   {
-    "colorSet": "Spiced Vanilla",
+    "colorSetName": "Spiced Vanilla",
     "size": 5
   },
   {
-    "colorSet": "RGBY",
+    "colorSetName": "RGBY",
     "size": 5
   },
   {
-    "colorSet": "Appeasing Your Date",
+    "colorSetName": "Appeasing Your Date",
     "size": 5
   },
   {
-    "colorSet": "Sensei",
+    "colorSetName": "Sensei",
     "size": 5
   },
   {
-    "colorSet": "Gurren",
+    "colorSetName": "Gurren",
     "size": 5
   },
   {
-    "colorSet": "Manliness",
+    "colorSetName": "Manliness",
     "size": 5
   },
   {
-    "colorSet": "Going Somewhere",
+    "colorSetName": "Going Somewhere",
     "size": 5
   },
   {
-    "colorSet": "Spellbound",
+    "colorSetName": "Spellbound",
     "size": 5
   }
 ];
