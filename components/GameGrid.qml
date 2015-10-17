@@ -12,16 +12,24 @@ Grid {
     // efficiency, assuming that each consequtive puzzle uses a different colour
     // set
     property string colorSetName
-    onColorSetNameChanged: indexMap = Logic.generateRandomizedArray(size);
+    onColorSetNameChanged: initiaiseLevel()
     property var colors: Logic.generateInterpolatedArray(size, Colors.colors[colorSetName])
     property var indexMap
     onIndexMapChanged: checkSolved(indexMap)
+    property var startingIndexMap
     property var onSolved
     property var selectedSquare: null
     property bool hinting: false
     columns: size
     rows: size
     spacing: 0
+    function initiaiseLevel() {
+        indexMap = Logic.generateRandomizedArray(size);
+        startingIndexMap = indexMap;
+    }
+    function resetLevel() {
+        indexMap = startingIndexMap;
+    }
     function checkSolved(arr) {
         if (Logic.all(function(i, val) {return val == i}, arr)) {
             onSolved();
