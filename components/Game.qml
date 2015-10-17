@@ -38,29 +38,16 @@ Column {
     Row {
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: parent.width / 2.4
-        Image {
-            id: resetButton
-            width: units.gu(2.8) // factor out
-            height: width
+        LabelButton {
             source: Qt.resolvedUrl("../reset2.svg")
+            MouseArea {
+                anchors.fill: parent
+                onClicked: grid.resetLevel();
+            }
         }
-        Item {
-            id: hintButton
-            width: icon.width
-            height: icon.height + label.height
-            Image {
-                id: icon
-                source: Qt.resolvedUrl("../hint2.svg")
-                width: units.gu(2.8)
-                height: width
-            }
-            Label {
-                id: label
-                anchors.horizontalCenter: icon.horizontalCenter
-                anchors.top: icon.bottom
-                text: "10"
-                fontSize: "small"
-            }
+        LabelButton {
+            source: Qt.resolvedUrl("../hint2.svg")
+            text: "10"
             MouseArea {
                 anchors.fill: parent
                 onPressed: grid.hinting = true;
