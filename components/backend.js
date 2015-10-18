@@ -132,6 +132,13 @@ function rgbToHexColor(color) {
     return "#" + ((1 << 24) + (color.r << 16) + (color.g << 8) + color.b).toString(16).slice(1);
 }
 
+function hexColorIsBright(hexString) {
+    // See http://stackoverflow.com/questions/946544/good-text-foreground-color-for-a-given-background-color
+    var color = hexColorToRgb(hexString);
+    var gray = color.r * 0.299 + color.g * 0.587 + color.b * 0.114;
+    return gray > 128;
+}
+
 function bilinearlyInterpolate(a, b, c, d, x, y) {
     return (
         a * (1 - x) * (1 - y) +
