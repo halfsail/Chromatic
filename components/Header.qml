@@ -62,7 +62,6 @@ Item {
             id: levelListComponent
             Popover {
                 id: levelListPopover
-                pointerTarget: label
                 ListView {
                     height: units.gu(30)
                     anchors.left: parent.left
