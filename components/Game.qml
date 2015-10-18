@@ -5,19 +5,16 @@ import "."
 Column {
     spacing: units.gu(3)
     property var puzzles
-    property int currentPuzzle: 0
+    property alias currentPuzzle: header.currentPuzzle
     property string name: puzzles.get(currentPuzzle).colorSetName
     function onSolved() {
         console.log("woot");
         currentPuzzle++;
     }
-    function onBack() {currentPuzzle--}
-    function onForward() {currentPuzzle++}
     Header {
-        currentPuzzle: parent.currentPuzzle
-        numPuzzles: puzzles.count
-        onBack: parent.onBack;
-        onForward: parent.onForward;
+        // The header component is responsible for the current puzzle of the game
+        id: header
+        puzzles: parent.puzzles
     }
     Label {
         anchors.horizontalCenter: parent.horizontalCenter

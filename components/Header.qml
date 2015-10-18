@@ -31,7 +31,7 @@ Item {
             MouseArea {
                 id: back
                 anchors.fill: parent
-                onClicked: active ? onBack() : null;
+                onClicked: active ? currentPuzzle-- : null;
             }
         }
         Label {
@@ -42,12 +42,12 @@ Item {
             color: "#5f5f5f"
             MouseArea {
                 anchors.fill: parent
-                onClicked: PopupUtils.open(levelList, parent)
+                onClicked: PopupUtils.open(levelListComponent, parent)
             }
         }
         Text {
             // FIXME: icon
-            property bool active: currentPuzzle < numPuzzles
+            property bool active: currentPuzzle < puzzles.count
             onActiveChanged: forward.enabled = active
             text: ">"
             opacity: active ? 1 : inactiveOpacity
@@ -55,23 +55,43 @@ Item {
             MouseArea {
                 id: forward
                 anchors.fill: parent
-                onClicked: active ? onForward() : null;
+                onClicked: active ? currentPuzzle++ : null;
             }
         }
         Component {
-            id: levelList
+            id: levelListComponent
             Popover {
+                id: levelListPopover
                 pointerTarget: label
                 ListView {
                     height: units.gu(30)
                     anchors.left: parent.left
                     anchors.right: parent.right
+                    anchors.leftMargin: units.gu(1)
+                    anchors.rightMargin: units.gu(1)
                     clip: true
                     model: puzzles
-                    delegate: Label {
+                    delegate: Item {
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        text: colorSetName
+                        height: lvl.height
+                        Row {
+                            spacing: units.gu(2)
+                            Label {
+                                id: lvl
+                                text: "lvl " + (index + 1)
+                            }
+                            Label {
+                                text: colorSetName
+                            }
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                currentPuzzle = index;
+                                PopupUtils.close(levelListPopover);
+                            }
+                        }
                     }
                 }
             }
