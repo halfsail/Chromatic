@@ -1,4 +1,4 @@
-var puzzles = [
+[
   {
     "colorSetName": "Carribbean",
     "size": 3
@@ -399,4 +399,4 @@ var puzzles = [
     "colorSetName": "Spellbound",
     "size": 5
   }
-];
+]

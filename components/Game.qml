@@ -1,15 +1,12 @@
 import QtQuick 2.2
 import Ubuntu.Components 1.1
 import "."
-import "puzzles.js" as Puzzles
 
 Column {
     spacing: units.gu(3)
-    anchors.fill: parent
-    anchors.margins: units.gu(2)
-    property var puzzles: Puzzles.puzzles
+    property var puzzles
     property int currentPuzzle: 0
-    property string name: puzzles[currentPuzzle].colorSetName
+    property string name: puzzles.get(currentPuzzle).colorSetName
     function onSolved() {
         console.log("woot");
         currentPuzzle++;
@@ -18,7 +15,7 @@ Column {
     function onForward() {currentPuzzle++}
     Header {
         currentPuzzle: parent.currentPuzzle
-        numPuzzles: puzzles.length
+        numPuzzles: puzzles.count
         onBack: parent.onBack;
         onForward: parent.onForward;
     }
@@ -32,7 +29,7 @@ Column {
         anchors.left: parent.left
         anchors.right: parent.right
         colorSetName: name
-        size: puzzles[currentPuzzle].size
+        size: puzzles.get(currentPuzzle).size
         onSolved: parent.onSolved
     }
     Row {

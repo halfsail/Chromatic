@@ -5,8 +5,8 @@ import "colors.js" as Colors
 
 Grid {
     id: grid
-    width: parent.width
-    height: parent.height
+    anchors.left: parent.left
+    anchors.right: parent.right
     property int size
     // FIXME: size change doesn't currently trigger a randomsiation for
     // efficiency, assuming that each consequtive puzzle uses a different colour
