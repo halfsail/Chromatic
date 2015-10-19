@@ -92,6 +92,10 @@ function shuffle(arr) {
     }
 }
 
+function choose(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
 function isCorner(index, size) {
     // Returns whether a given index in a grid array corresponds to a corner
     // square

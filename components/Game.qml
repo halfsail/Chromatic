@@ -1,5 +1,6 @@
 import QtQuick 2.2
 import Ubuntu.Components 1.1
+import Ubuntu.Components.Popups 1.0
 import "."
 
 Column {
@@ -8,8 +9,7 @@ Column {
     property alias currentPuzzle: header.currentPuzzle
     property string name: puzzles.get(currentPuzzle).colorSetName
     function onSolved() {
-        console.log("woot");
-        currentPuzzle++;
+        PopupUtils.open(congratsDialog);
     }
     Header {
         // The header component is responsible for the current puzzle of the game
@@ -47,6 +47,15 @@ Column {
                 onPressed: grid.hinting = true;
                 onReleased: grid.hinting = false;
             }
+        }
+    }
+    Component {
+        id: congratsDialog
+        CongratsDialog {
+            messages: ["Brilliant", "Excellent", "Magnificent", "Splendid", "spectacular", "Wonderful"]
+            anchors.left: parent.left
+            anchors.right: parent.right
+            onDismissed: currentPuzzle++;
         }
     }
 }
