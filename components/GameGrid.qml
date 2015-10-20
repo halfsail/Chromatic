@@ -60,7 +60,7 @@ Grid {
     }
     Repeater {
         model: grid.size * grid.size
-        Rectangle {
+        Item {
             id: square
             property int n: index  // can't call this index due to scope clash :-(
             width: grid.width / grid.columns
