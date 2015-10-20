@@ -16,7 +16,7 @@ Grid {
     onColorSetNameChanged: initiaiseLevel()
     property var colors: Logic.generateInterpolatedArray(size, Colors.colors[colorSetName])
     property var indexMap
-    onIndexMapChanged: checkSolved(indexMap) ? solved() : null
+    onIndexMapChanged: Logic.isSolved(indexMap) ? solved() : null
     property var startingIndexMap
     property var onSolved
     property var selectedSquare: null
@@ -30,9 +30,6 @@ Grid {
     }
     function resetLevel() {
         indexMap = startingIndexMap;
-    }
-    function checkSolved(arr) {
-        return Logic.all(function(i, val) {return val == i}, arr)
     }
     function swapIndexes(a, b) {
         var arr = indexMap.slice();

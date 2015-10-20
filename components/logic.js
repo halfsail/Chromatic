@@ -1,12 +1,3 @@
-function all(predicate, array) {
-    for (var i = 0; i < array.length; i++) {
-        if (! predicate(i, array[i])) {
-            return false;
-        }
-    }
-    return true;
-}
-
 function swap(arr, index_a, index_b) {
     var temp = arr[index_a];
     arr[index_a] = arr[index_b];
@@ -25,6 +16,15 @@ function shuffle(arr) {
 
 function choose(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function isSolved(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] != i) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function isCorner(index, size) {
