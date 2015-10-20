@@ -7,6 +7,7 @@ Grid {
     id: grid
     anchors.left: parent.left
     anchors.right: parent.right
+    signal solved
     property int size
     // FIXME: size change doesn't currently trigger a randomsiation for
     // efficiency, assuming that each consequtive puzzle uses a different colour
@@ -15,7 +16,7 @@ Grid {
     onColorSetNameChanged: initiaiseLevel()
     property var colors: Logic.generateInterpolatedArray(size, Colors.colors[colorSetName])
     property var indexMap
-    onIndexMapChanged: checkSolved(indexMap)
+    onIndexMapChanged: checkSolved(indexMap) ? solved() : null
     property var startingIndexMap
     property var onSolved
     property var selectedSquare: null
@@ -31,9 +32,7 @@ Grid {
         indexMap = startingIndexMap;
     }
     function checkSolved(arr) {
-        if (Logic.all(function(i, val) {return val == i}, arr)) {
-            onSolved();
-        }
+        return Logic.all(function(i, val) {return val == i}, arr)
     }
     function swapIndexes(a, b) {
         var arr = indexMap.slice();

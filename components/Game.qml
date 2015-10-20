@@ -8,9 +8,6 @@ Column {
     property var puzzles
     property alias currentPuzzle: header.currentPuzzle
     property string name: puzzles.get(currentPuzzle).colorSetName
-    function onSolved() {
-        PopupUtils.open(congratsDialog);
-    }
     Header {
         // The header component is responsible for the current puzzle of the game
         id: header
@@ -27,7 +24,7 @@ Column {
         anchors.right: parent.right
         colorSetName: name
         size: puzzles.get(currentPuzzle).size
-        onSolved: parent.onSolved
+        onSolved: PopupUtils.open(congratsDialog);
     }
     Row {
         anchors.horizontalCenter: parent.horizontalCenter
