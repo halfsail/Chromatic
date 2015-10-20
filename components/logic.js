@@ -40,17 +40,20 @@ function generateRandomizedArray(size) {
     // game grid
     var arr = [], corners = [];
     var i;
-    for (i = 0; i < size * size; i++) {
-        if (isCorner(i, size)) {
-            corners.push(i);
-        } else {
-            arr.push(i);
+    do {
+        for (i = 0; i < size * size; i++) {
+            if (isCorner(i, size)) {
+                corners.push(i);
+            } else {
+                arr.push(i);
+            }
+        }
+        shuffle(arr);
+        for (i = 0; i < corners.length; i++) {
+            arr.splice(corners[i], 0, corners[i]);
         }
     }
-    shuffle(arr);
-    for (i = 0; i < corners.length; i++) {
-        arr.splice(corners[i], 0, corners[i]);
-    }
+    while (isSolved(arr));
     return arr;
 }
 
