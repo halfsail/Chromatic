@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
+import U1db 1.0 as U1db
 import "."
 
 Column {
@@ -9,6 +10,36 @@ Column {
     property alias currentPuzzle: header.currentPuzzle
     property string name: puzzles.get(currentPuzzle).colorSetName
     signal menuClicked
+    U1db.Database {
+        id: persistentStateDB
+        path: "pallete.u1db"
+    }
+    U1db.Document {
+        id: persistentState
+        database: persistentStateDB
+        docId: "uSet"
+        create: true
+        defaults: {
+            "nulvl": 0,
+            "day": 0,
+            "hint": 10
+        }
+    }
+    Timer {
+        interval: 60000
+        running: true
+        repeat: true
+        property int dayMillisecs: 1000 * 60 * 60 * 24
+        onTriggered: {
+            var now = new Date().getTime();
+            if (now - persistentState.contents.day > dayMillisecs) {
+                var newContents = persistentState.contents;
+                newContents["day"] = now;
+                newContents["hint"] = 10;
+                persistentState.contents = newContents;
+            }
+        }
+    }
     Header {
         // The header component is responsible for the current puzzle of the game
         id: header
@@ -40,11 +71,21 @@ Column {
         }
         LabelButton {
             source: Qt.resolvedUrl("../hint2.svg")
-            text: "10"
+            text: active ? persistentState.contents.hint : "No more today"
+            property bool active: persistentState.contents.hint > 0
+            onActiveChanged: {
+                hint.enabled = active;
+            }
             MouseArea {
+                id: hint
                 anchors.fill: parent
                 onPressed: grid.hinting = true;
-                onReleased: grid.hinting = false;
+                onReleased: {
+                    grid.hinting = false;
+                    var newContents = persistentState.contents;
+                    newContents["hint"] = newContents["hint"] - 1;
+                    persistentState.contents = newContents;
+                }
             }
         }
     }

@@ -5,6 +5,8 @@ import "components"
 MainView {
     width: units.gu(45)
     height: units.gu(75)
+    applicationName: "palette.kevinfeyder"
+    backgroundColor: "white"
 
     PageStack {
         id: stack
