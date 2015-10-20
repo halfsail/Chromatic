@@ -26,7 +26,7 @@ Column {
         anchors.right: parent.right
         colorSetName: name
         size: puzzles.get(currentPuzzle).size
-        onSolved: PopupUtils.open(congratsDialog);
+        onSolved: currentPuzzle + 1 == puzzles.count ? PopupUtils.open(finishedDialog) : PopupUtils.open(congratsDialog);
     }
     Row {
         anchors.horizontalCenter: parent.horizontalCenter
@@ -55,6 +55,15 @@ Column {
             anchors.left: parent.left
             anchors.right: parent.right
             onDismissed: currentPuzzle++;
+        }
+    }
+    Component {
+        id: finishedDialog
+        CongratsDialog {
+            messages: ["Thank you for playing"]
+            anchors.left: parent.left
+            anchors.right: parent.right
+            onDismissed: pageStack.pop();
         }
     }
 }
