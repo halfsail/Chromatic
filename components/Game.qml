@@ -51,7 +51,7 @@ Column {
     Component {
         id: congratsDialog
         CongratsDialog {
-            messages: ["Brilliant", "Excellent", "Magnificent", "Splendid", "spectacular", "Wonderful"]
+            messages: ["Brilliant", "Excellent", "Magnificent", "Splendid", "Spectacular", "Wonderful"]
             anchors.left: parent.left
             anchors.right: parent.right
             onDismissed: currentPuzzle++;
