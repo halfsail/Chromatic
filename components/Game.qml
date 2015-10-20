@@ -8,10 +8,12 @@ Column {
     property var puzzles
     property alias currentPuzzle: header.currentPuzzle
     property string name: puzzles.get(currentPuzzle).colorSetName
+    signal menuClicked
     Header {
         // The header component is responsible for the current puzzle of the game
         id: header
         puzzles: parent.puzzles
+        onMenuClicked: parent.menuClicked();
     }
     Label {
         anchors.horizontalCenter: parent.horizontalCenter

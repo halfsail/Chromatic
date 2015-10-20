@@ -11,6 +11,7 @@ Page {
         id: gameComponent
         Game {
             puzzles: puzzlesModel
+            onMenuClicked: pageStack.pop()
         }
     }
     Loader {

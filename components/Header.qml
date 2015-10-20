@@ -7,6 +7,7 @@ Item {
     property var puzzles
     property var onBack
     property var onForward
+    signal menuClicked
     anchors.left: parent.left
     anchors.right: parent.right
     height: label.height
@@ -16,6 +17,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         MouseArea {
             anchors.fill: parent
+            onClicked: menuClicked();
         }
     }
     Row {
