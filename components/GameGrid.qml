@@ -1,6 +1,6 @@
 import QtQuick 2.2
 import Ubuntu.Components 1.1
-import "backend.js" as Logic
+import "logic.js" as Logic
 import "colors.js" as Colors
 
 Grid {

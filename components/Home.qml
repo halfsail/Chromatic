@@ -1,7 +1,7 @@
 import QtQuick 2.2
 import Ubuntu.Components 1.1
 import "colors.js" as Colors
-import "backend.js" as Logic
+import "logic.js" as Logic
 
 
 Page {
