@@ -101,7 +101,7 @@ Grid {
                 text: selectHint();
                 anchors.centerIn: square
                 color: Logic.hexColorIsBright(grid.colors[grid.indexMap[index]]) ? "black" : "white"
-                opacity: grid.hinting ? 1 : 0
+                opacity: grid.hinting ? 0.8 : 0
                 Behavior on opacity {
                     NumberAnimation {
                         duration: UbuntuAnimation.SleepyDuration
