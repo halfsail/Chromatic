@@ -13,7 +13,7 @@ Page {
             button: true, resetLevel: true
         },
         {
-            text: "The corner blocks are always correct so they fixed in place",
+            text: "The corner blocks are always correct so they can't move",
             button: true, showCornerHints: true
         },
         {
