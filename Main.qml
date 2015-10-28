@@ -27,7 +27,7 @@ MainView {
 
     Component {
         id: help
-        Help {}
+        NewHelp {}
     }
 
     Component.onCompleted: stack.push(home);
