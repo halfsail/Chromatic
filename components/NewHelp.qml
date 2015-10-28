@@ -74,7 +74,7 @@ Page {
             anchors.right: parent.right
             anchors.leftMargin: units.gu(3)
             anchors.rightMargin: anchors.leftMargin
-            colorSetName: "Fresh Lemons"
+            colorSetName: "Tutorial"
             size: 3
             enabled: instruction.gridActive ? true : false
             onColorSetNameChanged: null

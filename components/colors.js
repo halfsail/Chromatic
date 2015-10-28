@@ -503,6 +503,12 @@ var colors = {
     "#ffe1a8",
     "#88b637"
   ],
+  "Tutorial": [
+    "#1ccb90",
+    "#590066",
+    "#f874a6",
+    "#fffaad"
+  ],
   "Ubuntu": [
     "#dd4814",
     "#f37320",
