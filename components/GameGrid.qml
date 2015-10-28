@@ -18,7 +18,6 @@ Grid {
     property var indexMap
     onIndexMapChanged: Logic.isSolved(indexMap) ? solved() : moved()
     property var startingIndexMap
-    property var onSolved
     property var selectedSquare: null
     property bool hinting: false
     columns: size
