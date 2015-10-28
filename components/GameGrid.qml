@@ -20,6 +20,7 @@ Grid {
     property var startingIndexMap
     property var selectedSquare: null
     property bool hinting: false
+    property bool enabled: true
     columns: size
     rows: size
     spacing: 0
@@ -62,6 +63,7 @@ Grid {
             height: grid.height / grid.rows
             property bool selected: false
             MouseArea {
+                enabled: grid.enabled
                 anchors.fill: parent
                 onClicked: grid.onSquareSelected(square);
             }
