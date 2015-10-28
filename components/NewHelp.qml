@@ -17,7 +17,7 @@ Page {
             button: true, showCornerHints: true
         },
         {
-            text: "Tap any two other blocks to swap them into the correct positions",
+            text: "Tap any two other blocks to swap their positions",
             gridActive: true, gridChangeAdvance: true
         },
         {
