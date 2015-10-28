@@ -13,12 +13,12 @@ Page {
             button: true, resetLevel: true
         },
         {
-            text: "Tap any two blocks to swap them into the correct positions",
-            gridActive: true, gridChangeAdvance: true
+            text: "The corner blocks are always correct so they fixed in place",
+            button: true, showCornerHints: true
         },
         {
-            text: "The corner blocks are always correct so they are not movable",
-            button: true, showCornerHints: true
+            text: "Tap any two other blocks to swap them into the correct positions",
+            gridActive: true, gridChangeAdvance: true
         },
         {
             text: "If you are stuck press and hold this icon for a hint",
