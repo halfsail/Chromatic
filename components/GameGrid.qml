@@ -8,6 +8,7 @@ Grid {
     anchors.left: parent.left
     anchors.right: parent.right
     signal solved
+    signal moved
     property int size
     // FIXME: size change doesn't currently trigger a randomsiation for
     // efficiency, assuming that each consequtive puzzle uses a different colour
@@ -15,7 +16,7 @@ Grid {
     property string colorSetName
     property var colors: Logic.generateInterpolatedArray(size, Colors.colors[colorSetName])
     property var indexMap
-    onIndexMapChanged: Logic.isSolved(indexMap) ? solved() : null
+    onIndexMapChanged: Logic.isSolved(indexMap) ? solved() : moved()
     property var startingIndexMap
     property var onSolved
     property var selectedSquare: null
