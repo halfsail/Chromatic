@@ -20,6 +20,8 @@ Grid {
     property var startingIndexMap
     property var selectedSquare: null
     property bool hinting: false
+    property bool showCornerHints: hinting
+    property real hintOpacity: 0.8
     property bool enabled: true
     columns: size
     rows: size
@@ -94,11 +96,20 @@ Grid {
                 }
 
             }
+            function getHintOpacity(hinting, showCornerHints) {
+                if (Logic.isCorner(index, grid.size)) {
+                    // Corner hints are special because they help displays the
+                    // in isolation
+                    return showCornerHints ? hintOpacity : 0;
+                } else {
+                    return hinting ? hintOpacity : 0;
+                }
+            }
             Text {
                 text: selectHint();
                 anchors.centerIn: square
                 color: Logic.hexColorIsBright(grid.colors[grid.indexMap[index]]) ? "black" : "white"
-                opacity: grid.hinting ? 0.8 : 0
+                opacity: getHintOpacity(hinting, showCornerHints);
                 Behavior on opacity {
                     NumberAnimation {
                         duration: UbuntuAnimation.SleepyDuration
