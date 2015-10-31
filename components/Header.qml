@@ -4,6 +4,7 @@ import Ubuntu.Components.Popups 1.0
 
 Item {
     property int currentPuzzle
+    property int maxPuzzle
     property var puzzles
     property var onBack
     property var onForward
@@ -49,7 +50,7 @@ Item {
         }
         Text {
             // FIXME: icon
-            property bool active: currentPuzzle < puzzles.count
+            property bool active: currentPuzzle < maxPuzzle
             onActiveChanged: forward.enabled = active
             text: ">"
             opacity: active ? 1 : inactiveOpacity

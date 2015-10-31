@@ -8,6 +8,12 @@ Column {
     spacing: units.gu(3)
     property var puzzles
     property alias currentPuzzle: header.currentPuzzle
+    property alias maxPuzzle: header.maxPuzzle
+    onMaxPuzzleChanged: {
+        var newContents = persistentState.contents;
+        newContents["nulvl"] = maxPuzzle;
+        persistentState.contents = newContents;
+    }
     property string name: puzzles.get(currentPuzzle).colorSetName
     signal menuClicked
     U1db.Database {
@@ -44,6 +50,8 @@ Column {
         // The header component is responsible for the current puzzle of the game
         id: header
         puzzles: parent.puzzles
+        currentPuzzle: persistentState.contents.nulvl
+        maxPuzzle: persistentState.contents.nulvl
         onMenuClicked: parent.menuClicked();
     }
     Label {
@@ -96,7 +104,10 @@ Column {
             messages: ["Brilliant", "Excellent", "Magnificent", "Splendid", "Spectacular", "Wonderful"]
             anchors.left: parent.left
             anchors.right: parent.right
-            onDismissed: currentPuzzle++;
+            onDismissed: {
+                currentPuzzle++;
+                maxPuzzle = Math.max(currentPuzzle, maxPuzzle);
+            }
         }
     }
     Component {
