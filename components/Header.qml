@@ -13,6 +13,16 @@ Item {
     anchors.right: parent.right
     height: label.height
     property real inactiveOpacity: 0.3
+    ListModel {
+        // We make a sliced copy of the puzzles model for listing only those
+        // that are actually accessible to the player
+        id: activePuzzles
+    }
+    onMaxPuzzleChanged: {
+        for (var i = activePuzzles.count; i <= maxPuzzle; i++) {
+            activePuzzles.append(puzzles.get(i));
+        }
+    }
     Text {
         text: "[]"
         anchors.verticalCenter: parent.verticalCenter
@@ -45,7 +55,7 @@ Item {
             color: "#5f5f5f"
             MouseArea {
                 anchors.fill: parent
-                onClicked: PopupUtils.open(levelListComponent, parent)
+                onClicked: activePuzzles.count > 1 ? PopupUtils.open(levelListComponent, parent) : null
             }
         }
         Text {
@@ -72,7 +82,7 @@ Item {
                     anchors.leftMargin: units.gu(1)
                     anchors.rightMargin: units.gu(1)
                     clip: true
-                    model: puzzles
+                    model: activePuzzles
                     delegate: Item {
                         anchors.left: parent.left
                         anchors.right: parent.right
