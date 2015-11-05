@@ -11,14 +11,9 @@ Page {
     signal helpClicked
     property int currentSet: 0
     property var colorSets: [
-        Logic.generateInterpolatedArray(3, Colors.colors["Spellbound"]),
         Logic.generateInterpolatedArray(3, Colors.colors["#nofilter"]),
         Logic.generateInterpolatedArray(3, Colors.colors["Carribbean"]),
-        Logic.generateInterpolatedArray(3, Colors.colors["Moar Whales"]),
-        Logic.generateInterpolatedArray(3, Colors.colors["Your Lie In Apirl"]),
-        Logic.generateInterpolatedArray(3, Colors.colors["Sunset"]),
-        Logic.generateInterpolatedArray(3, Colors.colors["Raspberry Breve"]),
-        Logic.generateInterpolatedArray(3, Colors.colors["Nolas"])
+        Logic.generateInterpolatedArray(3, Colors.colors["Sunset"])
     ]
     Timer {
         interval: 3500
