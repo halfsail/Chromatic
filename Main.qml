@@ -29,6 +29,9 @@ MainView {
         id: help
         Help {}
     }
+    CreditsPage{
+        id:credits
+    }
 
     Component.onCompleted: stack.push(home);
 }

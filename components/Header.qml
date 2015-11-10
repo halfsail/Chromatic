@@ -58,23 +58,25 @@ Item {
             MouseArea {
                 id: back
                 anchors.fill: parent
-                onClicked: active ? currentPuzzle-- : null;
+                onClicked: currentPuzzle > 0 ? currentPuzzle-- : null;//active ? currentPuzzle-- : null;
             }
         }
         Label {
             id: label
             fontSize: "x-large"
             font.weight: Font.Light;
-            text: "Level " + (currentPuzzle + 1)
+            text:"Level " + (currentPuzzle + 1)
             color: "#5f5f5f"
             MouseArea {
                 anchors.fill: parent
                 onClicked: activePuzzles.count > 1 ? PopupUtils.open(levelListComponent, parent) : null
             }
         }
+
+
         Icon {
             // FIXME: icon
-            property bool active: currentPuzzle > maxPuzzle
+            property bool active: currentPuzzle < maxPuzzle
             onActiveChanged: forward.enabled = active
             name:"next"
             //text: ">"
@@ -85,9 +87,10 @@ Item {
             MouseArea {
                 id: forward
                 anchors.fill: parent
-                onClicked: active ? currentPuzzle++ : null;
+                onClicked: currentPuzzle < maxPuzzle ? currentPuzzle++ : null;
             }
         }
+
         Component {
             id: levelListComponent
             Popover {

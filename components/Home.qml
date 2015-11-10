@@ -94,22 +94,40 @@ Page {
             anchors.topMargin: units.gu(2)
         }
     }
-    Item {
-        width: grid.width / grid.columns
-        height: width
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        Label {
-            text: "How to play"
-            fontSize: "large"
-            color: "white"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: units.gu(6)
+    Column{
+        anchors{
+            bottom:parent.bottom
+            bottomMargin: units.gu(2)
+            horizontalCenter: parent.horizontalCenter
         }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: helpClicked();
+
+        Item {
+            width: grid.width / grid.columns
+            height: width/3
+            Label {
+                text: "How to play"
+                fontSize: "large"
+                color: "white"
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: helpClicked();
+            }
+        }
+        Item {
+            width: grid.width / grid.columns
+            height: width/3
+            Label {
+                text: "Credits"
+                fontSize: "large"
+                color: "white"
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: stack.push(credits)
+            }
         }
     }
 }

@@ -398,5 +398,69 @@
   {
     "colorSetName": "Spellbound",
     "size": 5
-  }
+  },
+    {
+      "colorSetName": "Sybil",
+      "size": 5
+    },
+    {
+      "colorSetName": "Cloudbank",
+      "size": 5
+    },
+    {
+      "colorSetName": "In Circles",
+      "size": 5
+    },
+    {
+      "colorSetName": "Spine",
+      "size": 5
+    },
+    {
+      "colorSetName": "Boardwalk",
+      "size": 5
+    },
+    {
+      "colorSetName": "Red",
+      "size": 5
+    },
+    {
+      "colorSetName": "Jupiter",
+      "size": 5
+    },
+    {
+      "colorSetName": "Supersede",
+      "size": 5
+    },
+    {
+      "colorSetName": "Emotional",
+      "size": 5
+    },
+    {
+      "colorSetName": "Grizzly Bear",
+      "size": 5
+    },
+    {
+      "colorSetName": "Moar Bears",
+      "size": 5
+    },
+    {
+      "colorSetName": "Party Pat",
+      "size": 5
+    },
+    {
+      "colorSetName": "Can't Get Enough",
+      "size": 5
+    },
+    {
+      "colorSetName": "Holiday",
+      "size": 5
+    },
+    {
+      "colorSetName": "After Party",
+      "size": 5
+    },
+    {
+      "colorSetName": "Blush",
+      "size": 5
+    }
 ]
