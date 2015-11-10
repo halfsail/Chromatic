@@ -82,12 +82,10 @@ Column {
             source: Qt.resolvedUrl("../hint2.svg")
             text: active ? persistentState.contents.hint : "No more today"
             property bool active: persistentState.contents.hint > 0
-            onActiveChanged: {
-                hint.enabled = active;
-            }
             MouseArea {
                 id: hint
                 anchors.fill: parent
+                enabled: parent.active
                 onPressed: grid.hinting = true;
                 onReleased: {
                     grid.hinting = false;
