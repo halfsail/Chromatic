@@ -66,6 +66,7 @@ Column {
         colorSetName: name
         onColorSetNameChanged: grid.initialiseLevel()
         size: puzzles.get(currentPuzzle).size
+        onSizeChanged: grid.initialiseLevel()
         onSolved: currentPuzzle + 1 == puzzles.count ? PopupUtils.open(finishedDialog) : PopupUtils.open(congratsDialog);
     }
     Row {
